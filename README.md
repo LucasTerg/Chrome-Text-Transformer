@@ -18,6 +18,8 @@ Prosty i lekki dodatek do przeglądarek (Chrome, Brave, Edge), który ułatwia c
 - `Alt + Shift + D` - Zamień na DUŻE LITERY
 - `Alt + Shift + M` - Zamień na małe litery
 
+> **Wskazówka:** Jeśli skróty nie działają lub chcesz je zmienić, wpisz w pasku adresu przeglądarki `chrome://extensions/shortcuts` i ustaw własne kombinacje klawiszy dla dodatku.
+
 ## Instalacja
 
 1. Pobierz zawartość tego repozytorium.
