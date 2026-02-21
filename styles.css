@@ -1,0 +1,41 @@
+/* STYLE DLA POWIADOMIEŃ (TOAST) */
+.text-transformer-toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #333;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  z-index: 2147483647; /* Absolutnie na wierzchu wszystkiego */
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: none;
+  white-space: pre-line;
+  border-left: 6px solid #4CAF50;
+}
+
+.text-transformer-toast.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Typy powiadomień */
+.text-transformer-toast.info {
+  border-left: 6px solid #2196F3;
+}
+
+.text-transformer-toast.success {
+  border-left: 6px solid #4CAF50;
+}
+
+.text-transformer-toast.warning {
+  border-left: 6px solid #f44336; /* Czerwony pasek dla ostrzeżenia */
+  background-color: #1a1a1a;
+  min-width: 250px;
+}

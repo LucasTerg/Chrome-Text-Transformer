@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "Text Transformer",
+  "version": "1.5",
+  "description": "Proste narzędzie do transformacji zaznaczonego tekstu.",
+  "permissions": [
+    "contextMenus",
+    "storage",
+    "tts",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://pim.mediaexpert.pl/*",
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "options_page": "options.html",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true
+    }
+  ],
+  "commands": {
+    "transform_uppercase": {
+      "suggested_key": { "default": "Alt+Shift+D" },
+      "description": "Zmień na DUŻE LITERY"
+    },
+    "transform_lowercase": {
+      "suggested_key": { "default": "Alt+Shift+M" },
+      "description": "Zmień na małe litery"
+    }
+  }
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page - Text Transformer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #f4f7f6;
+        }
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        h1 { color: #2c3e50; border-bottom: 2px solid #4CAF50; padding-bottom: 10px; }
+        h2 { font-size: 1.2rem; margin-top: 30px; color: #444; }
+        .field-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 0.9rem; color: #666; }
+        
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #4CAF50;
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+        }
+
+        .sample-text {
+            background: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid #2196F3;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .badge-pim { background: #fff3e0; color: #ef6c00; }
+        .badge-standard { background: #e3f2fd; color: #1976d2; }
+
+        .instructions {
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 40px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>❤️❤️ Text Transformer</h1>
+    <p>Użyj tej strony, aby przetestować wszystkie funkcje swojego dodatku.</p>
+
+    <div class="field-group">
+        <span class="badge badge-standard">Standardowe Pole</span>
+        <label for="standard-input">Zwykły Input (Testuj WIELKIE, małe, kapitaliki):</label>
+        <input type="text" id="standard-input" placeholder="Wpisz coś i zaznacz tekst...">
+    </div>
+
+    <div class="field-group">
+        <span class="badge badge-standard">Pole Tekstowe</span>
+        <label for="standard-textarea">Textarea (Testuj liczenie znaków i usuwanie spacji):</label>
+        <textarea id="standard-textarea" rows="4" placeholder="Wpisz tekst z   wieloma   spacjami..."></textarea>
+    </div>
+
+    <div class="field-group">
+        <span class="badge badge-pim">Symulacja Systemu PIM</span>
+        <label for="combobox-1248-inputEl">Pole z kodem FM070103 (Najedź myszką, aby zobaczyć ostrzeżenie):</label>
+        <input type="text" id="combobox-1248-inputEl" value="FM070103: Kostki do WC" name="prod_localgroupID">
+    </div>
+
+    <h2>Tekst do zaznaczenia (Testuj Kopiuj-Slug):</h2>
+    <div class="sample-text">
+        Męski Rower + KOŁO 28" (Biały) - Wyjątkowa okazja żaba żółć!
+    </div>
+
+    <div class="instructions">
+        <strong>Jak testować:</strong>
+        <ul>
+            <li><strong>Prawy Przycisk:</strong> Zaznacz tekst i wybierz opcję z menu "Transformacja tekstu".</li>
+            <li><strong>Skróty:</strong> Zaznacz tekst i naciśnij <code>Ctrl+Shift+U</code> (Wielkie) lub <code>Ctrl+Shift+L</code> (Małe).</li>
+            <li><strong>PIM:</strong> Najedź myszką na pole z kodem FM070103 - powinien pojawić się czerwony dymek na 15 sekund.</li>
+            <li><strong>Statystyki:</strong> Kliknij ikonę serduszka na pasku przeglądarki przy zaznaczonym tekście.</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

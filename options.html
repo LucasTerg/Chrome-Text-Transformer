@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Ustawienia Text Transformer</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; width: 300px; }
+    .option { margin-bottom: 15px; display: flex; align-items: center; justify-content: space-between; }
+    h1 { font-size: 18px; margin-top: 0; }
+    .status { color: green; font-size: 12px; height: 15px; }
+  </style>
+</head>
+<body>
+  <h1>Ustawienia</h1>
+  <div class="option">
+    <label for="ttsEnabled">Czytanie na głos (TTS):</label>
+    <input type="checkbox" id="ttsEnabled" checked>
+  </div>
+  <div class="status" id="status"></div>
+  <script src="options.js"></script>
+</body>
+</html>
