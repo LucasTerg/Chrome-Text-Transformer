@@ -1,2 +1,9 @@
+# Rozszerzenie Chrome - pliki ignorowane
 tmp/
+git-switch.sh
 .DS_Store
+Thumbs.db
+desktop.ini
+._*
+.git/
+*.log
