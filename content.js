@@ -40,7 +40,7 @@ if (window.hasTextTransformerLoaded) {
     switch (request.action) {
       case 'uppercase': transformedText = selectedText.toUpperCase(); break;
       case 'lowercase': transformedText = selectedText.toLowerCase(); break;
-      case 'capitalize': transformedText = selectedText.replace(/\b\w/g, c => c.toUpperCase()); break;
+      case 'capitalize': transformedText = selectedText.toLowerCase().replace(/\b\w/g, c => c.toUpperCase()); break;
       case 'sentence': transformedText = selectedText.charAt(0).toUpperCase() + selectedText.slice(1).toLowerCase(); break;
       case 'clean': transformedText = selectedText.replace(/[-"!@\$,]/g, '').replace(/\s+/g, ' '); break;
     }
