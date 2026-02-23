@@ -111,6 +111,10 @@ if (window.hasTextTransformerLoaded) {
         const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q/edit?gid=1676216201#gid=1676216201';
         showToast(`ℹ️ INFO DLA DEPILATORÓW:\nTyp: Depilator; Marka: PHILIPS; Seria: Lumea 9900 IPL; Model: BRI977/00;\nTechnologia: SenseIQ + Czujnik SmartSkin\n\n✅ Prawidłowa nazwa:\nDepilator PHILIPS Lumea 9900 IPL BRI973/00 SenseIQ Czujnik SmartSkin\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
       }
+      else if (val.includes('AD030300')) {
+        const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q/edit?gid=1303321896#gid=1303321896';
+        showToast(`ℹ️ DEPILATORY TRADYCYJNE:\nTyp: Depilator; Marka: PHILIPS; Seria: 6w1; Model: BRI977/00;\nCzęści ciała: Bikini Nogi Twarz\n\n✅ Prawidłowa nazwa:\nDepilator PHILIPS 6w1 BRI973/00 Bikini\n\n⚠️ UWAGA: Sposób depilacji - zaznaczamy jedynie pęsety, dyski lub folię. Wartość „Głowica” jest nieprawidłowa!\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
+      }
     }
   });
 
