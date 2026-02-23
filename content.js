@@ -108,7 +108,8 @@ if (window.hasTextTransformerLoaded) {
         showToast('NIE ZAPOMNIJ!\nEtykieta i karta charakterystyki w języku polskim.\nDodajemy atrybuty Informacje i Termin ważności pozwolenia: Nie dotyczy.', 'warning');
       } 
       else if (val.includes('AD030800')) {
-        showToast('ℹ️ INFO DLA DEPILATORÓW:\nTyp: Depilator; Marka: PHILIPS; Seria: Lumea 9900 IPL; Model: BRI977/00;\nTechnologia: SenseIQ + Czujnik SmartSkin\n\n✅ Prawidłowa nazwa:\nDepilator PHILIPS Lumea 9900 IPL BRI973/00 SenseIQ Czujnik SmartSkin\n\nArkusze: https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q', 'success');
+        const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q';
+        showToast(`ℹ️ INFO DLA DEPILATORÓW:\nTyp: Depilator; Marka: PHILIPS; Seria: Lumea 9900 IPL; Model: BRI977/00;\nTechnologia: SenseIQ + Czujnik SmartSkin\n\n✅ Prawidłowa nazwa:\nDepilator PHILIPS Lumea 9900 IPL BRI973/00 SenseIQ Czujnik SmartSkin\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
       }
     }
   });
