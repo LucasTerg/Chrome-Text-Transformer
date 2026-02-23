@@ -104,7 +104,7 @@ if (window.hasTextTransformerLoaded) {
     if ((el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') && el.id && el.id.endsWith('-inputEl')) {
       const val = el.value || '';
       if (val.includes('FM070103')) {
-        showToast('NIE ZAPOMNIJ!\nEtykieta i karta charakterystyki w języku polskim.', 'warning');
+        showToast('NIE ZAPOMNIJ!\nEtykieta i karta charakterystyki w języku polskim.\nDodajemy atrybuty Informacje i Termin ważności pozwolenia: Nie dotyczy.', 'warning');
       }
     }
   });
