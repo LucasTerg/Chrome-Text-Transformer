@@ -40,7 +40,7 @@ if (window.hasTextTransformerLoaded) {
     switch (request.action) {
       case 'uppercase': transformedText = selectedText.toUpperCase(); break;
       case 'lowercase': transformedText = selectedText.toLowerCase(); break;
-      case 'capitalize': transformedText = selectedText.toLowerCase().replace(/\b\w/g, c => c.toUpperCase()); break;
+      case 'capitalize': transformedText = selectedText.toLowerCase().replace(/(^|[\s\-\(\)\/,])([a-z\u00a1-\u1fff\u2c00-\ud7ff])/g, c => c.toUpperCase()); break;
       case 'sentence': transformedText = selectedText.charAt(0).toUpperCase() + selectedText.slice(1).toLowerCase(); break;
       case 'clean': transformedText = selectedText.replace(/[-"!@\$,]/g, '').replace(/\s+/g, ' '); break;
     }
@@ -117,6 +117,10 @@ if (window.hasTextTransformerLoaded) {
       }
       else if (val.includes('FM070112')) {
         showToast('FM070112: Odplamiacze "na końcu do białego 950 ml, do koloru, Uniwersalny"\n\nRodzaj produktu (Odplamiacz do prania) + MARKA + model (np. ProCare/Spring Freshness) + pojemność (w wersji np. 4500 ml) + do białych/kolorowych tkanin + hipoalergiczny/z keratyna/dla niemowląt.', 'success');
+      }
+      else if (val.includes('AD030201')) {
+        const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q/edit?gid=1863629294#gid=1863629294';
+        showToast(`ℹ️ AD030201: GOLARKI:\n⚠️ UWAGA: Jeśli golarka jest do głowy musimy zaznaczyć to w nazwie.\nNa końcu nazwy zawsze musi być dopisane: Na mokro i sucho\n\n✅ Przykład:\nGolarka PHILIPS Seria 600 SkinQ S6830/95 Na mokro i sucho\nGolarka do głowy .... analogicznie\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
       }
     }
   });
