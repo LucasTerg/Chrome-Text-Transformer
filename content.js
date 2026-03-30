@@ -104,28 +104,42 @@ if (window.hasTextTransformerLoaded) {
     if ((el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') && el.id && el.id.endsWith('-inputEl')) {
       const val = el.value || '';
       
-      if (val.includes('FM070103')) {
-        showToast('NIE ZAPOMNIJ!\nEtykieta i karta charakterystyki w języku polskim.\nDodajemy atrybuty Informacje i Termin ważności pozwolenia: Nie dotyczy.', 'warning');
-      } 
-      else if (val.includes('AD030800')) {
-        const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q/edit?gid=1676216201#gid=1676216201';
-        showToast(`ℹ️ INFO DLA DEPILATORÓW:\nTyp: Depilator; Marka: PHILIPS; Seria: Lumea 9900 IPL; Model: BRI977/00;\nTechnologia: SenseIQ + Czujnik SmartSkin\n\n✅ Prawidłowa nazwa:\nDepilator PHILIPS Lumea 9900 IPL BRI973/00 SenseIQ Czujnik SmartSkin\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
-      }
-      else if (val.includes('AD030300')) {
-        const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q/edit?gid=1303321896#gid=1303321896';
-        showToast(`ℹ️ DEPILATORY TRADYCYJNE:\nTyp: Depilator; Marka: PHILIPS; Seria: 6w1; Model: BRI977/00;\nCzęści ciała: Bikini Nogi Twarz\n\n✅ Prawidłowa nazwa:\nDepilator PHILIPS 6w1 BRI973/00 Bikini\n\n⚠️ UWAGA: Sposób depilacji - zaznaczamy jedynie pęsety, dyski lub folię. Wartość „Głowica” jest nieprawidłowa!\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
-      }
-      else if (val.includes('FM070112')) {
-        showToast('FM070112: Odplamiacze "na końcu do białego 950 ml, do koloru, Uniwersalny"\n\nRodzaj produktu (Odplamiacz do prania) + MARKA + model (np. ProCare/Spring Freshness) + pojemność (w wersji np. 4500 ml) + do białych/kolorowych tkanin + hipoalergiczny/z keratyna/dla niemowląt.', 'success');
-      }
-      else if (val.includes('AD030201')) {
-        const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q/edit?gid=1863629294#gid=1863629294';
-        showToast(`ℹ️ AD030201: GOLARKI:\n⚠️ UWAGA: Jeśli golarka jest do głowy musimy zaznaczyć to w nazwie.\nNa końcu nazwy zawsze musi być dopisane: Na mokro i sucho\n\n✅ Przykład:\nGolarka PHILIPS Seria 600 SkinQ S6830/95 Na mokro i sucho\nGolarka do głowy .... analogicznie\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
-      }
-      else if (val.includes('AD030500')) {
-        const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q/edit?gid=1325076563#gid=1325076563';
-        showToast(`ℹ️ AD030500: SUSZARKI:\n⚠️ DYSON: Nie wpisujemy kolorów ze zdjęcia! Zapisujemy kolory producenta (np. Patyna-Topaz, Fioletowy Jaspis).\n\n⚡ Na końcu nazwy dodajemy moc [W], np. 1600W.\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
-      }
+      chrome.storage.sync.get(['showTooltips', 'lastResetDate'], (items) => {
+        const now = new Date();
+        const todayStr = now.toDateString();
+        let showTooltips = items.showTooltips !== false; // domyślnie true
+
+        // Logika resetu o 8:00 rano
+        if (now.getHours() >= 8 && items.lastResetDate !== todayStr) {
+          showTooltips = true;
+          chrome.storage.sync.set({ showTooltips: true, lastResetDate: todayStr });
+        }
+
+        if (!showTooltips) return;
+
+        if (val.includes('FM070103')) {
+          showToast('NIE ZAPOMNIJ!\nEtykieta i karta charakterystyki w języku polskim.\nDodajemy atrybuty Informacje i Termin ważności pozwolenia: Nie dotyczy.', 'warning');
+        } 
+        else if (val.includes('AD030800')) {
+          const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q/edit?gid=1676216201#gid=1676216201';
+          showToast(`ℹ️ INFO DLA DEPILATORÓW:\nTyp: Depilator; Marka: PHILIPS; Seria: Lumea 9900 IPL; Model: BRI977/00;\nTechnologia: SenseIQ + Czujnik SmartSkin\n\n✅ Prawidłowa nazwa:\nDepilator PHILIPS Lumea 9900 IPL BRI973/00 SenseIQ Czujnik SmartSkin\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
+        }
+        else if (val.includes('AD030300')) {
+          const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q/edit?gid=1303321896#gid=1303321896';
+          showToast(`ℹ️ DEPILATORY TRADYCYJNE:\nTyp: Depilator; Marka: PHILIPS; Seria: 6w1; Model: BRI977/00;\nCzęści ciała: Bikini Nogi Twarz\n\n✅ Prawidłowa nazwa:\nDepilator PHILIPS 6w1 BRI973/00 Bikini\n\n⚠️ UWAGA: Sposób depilacji - zaznaczamy jedynie pęsety, dyski lub folię. Wartość „Głowica” jest nieprawidłowa!\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
+        }
+        else if (val.includes('FM070112')) {
+          showToast('FM070112: Odplamiacze "na końcu do białego 950 ml, do koloru, Uniwersalny"\n\nRodzaj produktu (Odplamiacz do prania) + MARKA + model (np. ProCare/Spring Freshness) + pojemność (w wersji np. 4500 ml) + do białych/kolorowych tkanin + hipoalergiczny/z keratyna/dla niemowląt.', 'success');
+        }
+        else if (val.includes('AD030201')) {
+          const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q/edit?gid=1863629294#gid=1863629294';
+          showToast(`ℹ️ AD030201: GOLARKI:\n⚠️ UWAGA: Jeśli golarka jest do głowy musimy zaznaczyć to w nazwie.\nNa końcu nazwy zawsze musi być dopisane: Na mokro i sucho\n\n✅ Przykład:\nGolarka PHILIPS Seria 600 SkinQ S6830/95 Na mokro i sucho\nGolarka do głowy .... analogicznie\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
+        }
+        else if (val.includes('AD030500')) {
+          const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q/edit?gid=1325076563#gid=1325076563';
+          showToast(`ℹ️ AD030500: SUSZARKI:\n⚠️ DYSON: Nie wpisujemy kolorów ze zdjęcia! Zapisujemy kolory producenta (np. Patyna-Topaz, Fioletowy Jaspis).\n\n⚡ Na końcu nazwy dodajemy moc [W], np. 1600W.\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
+        }
+      });
     }
   });
 

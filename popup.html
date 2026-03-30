@@ -3,18 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <style>
-    body { font-family: sans-serif; padding: 10px; width: 250px; background-color: #f9f9f9; }
-    h2 { font-size: 16px; margin: 0 0 10px 0; color: #4CAF50; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
-    .stat { margin: 5px 0; font-size: 14px; display: flex; justify-content: space-between; }
+    body { font-family: sans-serif; padding: 12px; width: 260px; background-color: #ffffff; }
+    h2 { font-size: 16px; margin: 0 0 10px 0; color: #4CAF50; border-bottom: 2px solid #4CAF50; padding-bottom: 5px; }
+    .stat { margin: 8px 0; font-size: 14px; display: flex; justify-content: space-between; align-items: center; }
     .stat label { font-weight: bold; color: #555; }
-    .stat span { color: #000; }
+    .stat span { color: #000; font-family: monospace; font-size: 15px; }
+    .settings { margin-top: 15px; padding-top: 10px; border-top: 1px dashed #ddd; }
+    .settings label { display: flex; align-items: center; font-size: 13px; cursor: pointer; color: #333; }
+    .settings input { margin-right: 10px; width: 16px; height: 16px; }
+    .hint { font-size: 10px; color: #999; margin-top: 4px; line-height: 1.2; font-style: italic; }
   </style>
 </head>
 <body>
-  <h2>Statystyki zaznaczenia</h2>
+  <h2>❤️❤️ Text Transformer</h2>
   <div class="stat"><label>Znaki:</label> <span id="charCount">0</span></div>
   <div class="stat"><label>Słowa:</label> <span id="wordCount">0</span></div>
   <div class="stat"><label>Linie:</label> <span id="lineCount">0</span></div>
+  
+  <div class="settings">
+    <label>
+      <input type="checkbox" id="showTooltips" checked>
+      Dymki przy kodach PIM
+    </label>
+    <div class="hint">Włączone domyślnie. Resetuje się codziennie o 8:00 rano.</div>
+  </div>
+
   <script src="popup.js"></script>
 </body>
 </html>

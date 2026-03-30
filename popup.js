@@ -1,32 +1,30 @@
-chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-  if (!tabs[0] || !tabs[0].id || tabs[0].url.startsWith('chrome://')) {
-    console.warn('Nie można pobrać tekstu ze strony systemowej.');
-    return;
-  }
+document.addEventListener('DOMContentLoaded', () => {
+  const showTooltipsCheckbox = document.getElementById('showTooltips');
 
-  chrome.scripting.executeScript({
-    target: { tabId: tabs[0].id },
-    func: () => window.getSelection().toString()
-  }, (results) => {
-    if (chrome.runtime.lastError || !results || !results[0]) {
-      console.warn('Błąd pobierania zaznaczenia:', chrome.runtime.lastError?.message);
-      return;
-    }
+  // Wczytaj stan checkboxa
+  chrome.storage.sync.get({ showTooltips: true }, (items) => {
+    showTooltipsCheckbox.checked = items.showTooltips;
+  });
 
-    // Używamy trim(), aby usunąć puste znaki i Entery z początku i końca zaznaczenia
-    const text = (results[0].result || '').trim();
-    
-    if (text) {
-      document.getElementById('charCount').textContent = text.length;
-      document.getElementById('wordCount').textContent = text.split(/\s+/).filter(w => w.length > 0).length;
-      
-      // Liczymy linie tylko jeśli tekst nie jest pusty, ignorując puste linie na końcu
-      const lines = text.split(/\r\n|\r|\n/);
-      document.getElementById('lineCount').textContent = lines.length;
-    } else {
-      document.getElementById('charCount').textContent = '0';
-      document.getElementById('wordCount').textContent = '0';
-      document.getElementById('lineCount').textContent = '0';
-    }
+  // Zapisz stan po zmianie
+  showTooltipsCheckbox.addEventListener('change', () => {
+    chrome.storage.sync.set({ showTooltips: showTooltipsCheckbox.checked });
+  });
+
+  // Obsługa statystyk zaznaczenia
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    chrome.scripting.executeScript({
+      target: { tabId: tabs[0].id },
+      func: () => window.getSelection().toString()
+    }, (selection) => {
+      const selectedText = selection[0].result || '';
+      const charCount = selectedText.length;
+      const wordCount = selectedText.trim() ? selectedText.trim().split(/\s+/).length : 0;
+      const lineCount = selectedText.trim() ? selectedText.split(/\r\n|\r|\n/).length : 0;
+
+      document.getElementById('charCount').textContent = charCount;
+      document.getElementById('wordCount').textContent = wordCount;
+      document.getElementById('lineCount').textContent = lineCount;
+    });
   });
 });
