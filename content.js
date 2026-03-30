@@ -122,6 +122,10 @@ if (window.hasTextTransformerLoaded) {
         const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q/edit?gid=1863629294#gid=1863629294';
         showToast(`ℹ️ AD030201: GOLARKI:\n⚠️ UWAGA: Jeśli golarka jest do głowy musimy zaznaczyć to w nazwie.\nNa końcu nazwy zawsze musi być dopisane: Na mokro i sucho\n\n✅ Przykład:\nGolarka PHILIPS Seria 600 SkinQ S6830/95 Na mokro i sucho\nGolarka do głowy .... analogicznie\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
       }
+      else if (val.includes('AD030500')) {
+        const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q/edit?gid=1325076563#gid=1325076563';
+        showToast(`ℹ️ AD030500: SUSZARKI:\n⚠️ DYSON: Nie wpisujemy kolorów ze zdjęcia! Zapisujemy kolory producenta (np. Patyna-Topaz, Fioletowy Jaspis).\n\n⚡ Na końcu nazwy dodajemy moc [W], np. 1600W.\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
+      }
     }
   });
 
