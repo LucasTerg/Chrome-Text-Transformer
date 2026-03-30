@@ -115,6 +115,9 @@ if (window.hasTextTransformerLoaded) {
         const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q/edit?gid=1303321896#gid=1303321896';
         showToast(`ℹ️ DEPILATORY TRADYCYJNE:\nTyp: Depilator; Marka: PHILIPS; Seria: 6w1; Model: BRI977/00;\nCzęści ciała: Bikini Nogi Twarz\n\n✅ Prawidłowa nazwa:\nDepilator PHILIPS 6w1 BRI973/00 Bikini\n\n⚠️ UWAGA: Sposób depilacji - zaznaczamy jedynie pęsety, dyski lub folię. Wartość „Głowica” jest nieprawidłowa!\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
       }
+      else if (val.includes('FM070112')) {
+        showToast('FM070112: Odplamiacze "na końcu do białego 950 ml, do koloru, Uniwersalny"\n\nRodzaj produktu (Odplamiacz do prania) + MARKA + model (np. ProCare/Spring Freshness) + pojemność (w wersji np. 4500 ml) + do białych/kolorowych tkanin + hipoalergiczny/z keratyna/dla niemowląt.', 'success');
+      }
     }
   });
 
