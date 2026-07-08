@@ -139,6 +139,44 @@ if (window.hasTextTransformerLoaded) {
           const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q/edit?gid=1325076563#gid=1325076563';
           showToast(`ℹ️ AD030500: SUSZARKI:\n⚠️ DYSON: Nie wpisujemy kolorów ze zdjęcia! Zapisujemy kolory producenta (np. Patyna-Topaz, Fioletowy Jaspis).\n\n⚡ Na końcu nazwy dodajemy moc [W], np. 1600W.\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
         }
+        else if (val.includes('AD031701')) {
+          const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q/edit?gid=1735756226#gid=1735756226';
+          showToast(`ℹ️ AD031701: MASZYNKI I OSTRZA DO GOLENIA:\nNazwy w tej kategorii: Ostrza do golarki LUB Golarka\n\n✅ Schemat:\n{Typ} + {MARKA} + {SERIA} + {Pozostała zawartość zestawu}\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
+        }
+        else if (val.includes('DO059905')) {
+          const url = 'https://discord.com/channels/1349337217356664914/1359823445080408157/1521766753317683330';
+          showToast(`ℹ️ DO059905: Poszewki na poduszki\nnie posiada wyraźnego wzoru, a powierzchnia jest jednokolorowa, należy zastosować wartość „Jednolity”; nie posiada żadnego wykończenia, należy uzupełnić wartość „Bez wykończenia”.\n\nŹródło: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
+        }
+        else if (val.includes('AD023604')) {
+          const url = 'https://discord.com/channels/1349337217356664914/1359823445080408157/1524012577720369224';
+          const msg = 'ℹ️ AD023604: Wiaderka do lodu<br>' +
+                      '<b>Nazwa:</b> Wiaderko do lodu + MARKA + Model + pojemność<br>' +
+                      '<table style="font-size:0.95em;margin-top:4px;border-collapse:collapse;">' +
+                      '<tr><td style="padding-right:8px;"><b>Szczypce w zestawie:</b></td><td>Tak/ Nie</td></tr>' +
+                      '<tr><td><b>Pojemność [l]:</b></td><td>0.9, 1.7</td></tr>' +
+                      '<tr><td><b>Materiał wykonania:</b></td><td>Szkło, Stal nierdzewna</td></tr>' +
+                      '<tr><td><b>Kolor dominujący:</b></td><td>Biały, Srebrny</td></tr>' +
+                      '<tr><td><b>Pokrywka:</b></td><td>Tak / Nie</td></tr>' +
+                      '<tr><td colspan="2"><b>Informacje dodatkowe:</b> Sitko do oddzielania lodu od wody</td></tr>' +
+                      '</table>' +
+                      '<a href="' + url + '" target="_blank" style="color:#2196F3;text-decoration:underline;pointer-events:auto;display:block;margin-top:4px;">Link do informacji</a>';
+          showToast(msg, 'success');
+        }
+        else if (val.includes('AD023603')) {
+          const url = 'https://discord.com/channels/1349337217356664914/1359823445080408157/1524012577720369224';
+          const msg = 'ℹ️ AD023603: Organizery kuchenne<br>' +
+                      '<b>Nazwa:</b> Organizer + typ organizera + MARKA + model<br>' +
+                      '<table style="font-size:0.95em;margin-top:4px;border-collapse:collapse;">' +
+                      '<tr><td style="padding-right:8px;"><b>Typ organizera:</b></td><td>Na zlew, na przybory kuchenne, na akcesoria do zmywania</td></tr>' +
+                      '<tr><td><b>Kolor dominujący:</b></td><td>Srebrny, czarny, biały</td></tr>' +
+                      '<tr><td><b>Materiał wykonania:</b></td><td>Stal nierdzewna, Tworzywo sztuczne</td></tr>' +
+                      '<tr><td><b>Rodzaj:</b></td><td>Stojący/wiszący</td></tr>' +
+                      '<tr><td><b>Funkcje dodatkowe:</b></td><td>Dozownik na płyn, tacka ociekowa</td></tr>' +
+                      '<tr><td><b>Liczba przegródek:</b></td><td>1, 4, 7</td></tr>' +
+                      '</table>' +
+                      '<a href="' + url + '" target="_blank" style="color:#2196F3;text-decoration:underline;pointer-events:auto;display:block;margin-top:4px;">Link do informacji</a>';
+          showToast(msg, 'success');
+        }
       });
     }
   });
