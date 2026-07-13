@@ -143,6 +143,10 @@ if (window.hasTextTransformerLoaded) {
           const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q/edit?gid=1735756226#gid=1735756226';
           showToast(`ℹ️ AD031701: MASZYNKI I OSTRZA DO GOLENIA:\nNazwy w tej kategorii: Ostrza do golarki LUB Golarka\n\n✅ Schemat:\n{Typ} + {MARKA} + {SERIA} + {Pozostała zawartość zestawu}\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
         }
+        else if (val.includes('AD031001')) {
+          const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q/edit?gid=1046973816#gid=1046973816';
+          showToast(`ℹ️ AD031001: SUSZARKO-LOKÓWKI:\n✅ Nazwa: Suszarko-lokówka + MARKA + Seria + Model + średnica końcówek + Moc\n\n⚠️ UWAGA: Proszę o wpisywanie technologii w atrybut "Zastosowane technologie" - nawet, jeśli będzie to tylko technologia jonowa. Jest to atrybut, który znajduje się na listingu.\n\n⚠️ UWAGA: Prośba o pamiętanie o wpisanie końcówek, które znajdują się w zestawie do wyposażenia.\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
+        }
         else if (val.includes('DO059905')) {
           const url = 'https://discord.com/channels/1349337217356664914/1359823445080408157/1521766753317683330';
           showToast(`ℹ️ DO059905: Poszewki na poduszki\nnie posiada wyraźnego wzoru, a powierzchnia jest jednokolorowa, należy zastosować wartość „Jednolity”; nie posiada żadnego wykończenia, należy uzupełnić wartość „Bez wykończenia”.\n\nŹródło: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
@@ -176,6 +180,10 @@ if (window.hasTextTransformerLoaded) {
                       '</table>' +
                       '<a href="' + url + '" target="_blank" style="color:#2196F3;text-decoration:underline;pointer-events:auto;display:block;margin-top:4px;">Link do informacji</a>';
           showToast(msg, 'success');
+        }
+        else if (val.includes('AD030702')) {
+          const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q/edit?gid=39768158#gid=39768158';
+          showToast(`ℹ️ AD030702: PROSTOWNICE:\n✅ Nazwa: Prostownica + MARKA + Seria + Model + Maksymalna temperatura\n\n⚠️ UWAGA: Proszę o zwracanie uwagi o jednolitość danych - jeśli w funkcjach zaznaczona jest jonizacja, to w atrybucie "Jonizacja" Musi być zaznaczone: tak\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
         }
       });
     }
