@@ -181,6 +181,14 @@ if (window.hasTextTransformerLoaded) {
                       '<a href="' + url + '" target="_blank" style="color:#2196F3;text-decoration:underline;pointer-events:auto;display:block;margin-top:4px;">Link do informacji</a>';
           showToast(msg, 'success');
         }
+        else if (val.includes('AD010900')) {
+          const msg = '<div style="font-size:0.85em;">ℹ️ <b>AD010900: ODKURZACZE AUTOMATYCZNE</b><br>' +
+                      '<table style="margin-top:4px;border-collapse:collapse;">' +
+                      '<tr><td style="padding-right:8px;vertical-align:top;"><b>Typ elementu czyszczącego:</b></td>' +
+                      '<td>wybieramy <i>nie dotyczy</i>, gdy nie jest robotem myjącym (mopującym)</td></tr>' +
+                      '</table></div>';
+          showToast(msg, 'success');
+        }
         else if (val.includes('AD030702')) {
           const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q/edit?gid=39768158#gid=39768158';
           showToast(`ℹ️ AD030702: PROSTOWNICE:\n✅ Nazwa: Prostownica + MARKA + Seria + Model + Maksymalna temperatura\n\n⚠️ UWAGA: Proszę o zwracanie uwagi o jednolitość danych - jeśli w funkcjach zaznaczona jest jonizacja, to w atrybucie "Jonizacja" Musi być zaznaczone: tak\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
