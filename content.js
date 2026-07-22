@@ -182,16 +182,29 @@ if (window.hasTextTransformerLoaded) {
           showToast(msg, 'success');
         }
         else if (val.includes('AD010900')) {
+          const url = 'https://discord.com/channels/1349337217356664914/1359823445080408157/1526512917317685378';
           const msg = '<div style="font-size:0.85em;">ℹ️ <b>AD010900: ODKURZACZE AUTOMATYCZNE</b><br>' +
                       '<table style="margin-top:4px;border-collapse:collapse;">' +
                       '<tr><td style="padding-right:8px;vertical-align:top;"><b>Typ elementu czyszczącego:</b></td>' +
                       '<td>wybieramy <i>nie dotyczy</i>, gdy nie jest robotem myjącym (mopującym)</td></tr>' +
-                      '</table></div>';
+                      '<tr><td style="padding-right:8px;vertical-align:top;"><b>Samoczyszczenie stacji:</b></td>' +
+                      '<td>Najczęściej obejmuje: automatyczne płukanie mopów po sprzątaniu, usuwanie zabrudzeń z tacy/podstawy, przepłukiwanie kanałów wodnych (w niektórych), przygotowanie stacji do kolejnego cyklu.</td></tr>' +
+                      '</table>' +
+                      '<a href="' + url + '" target="_blank" style="color:#2196F3;text-decoration:underline;pointer-events:auto;display:block;margin-top:4px;">Link do informacji</a>' +
+                      '</div>';
           showToast(msg, 'success');
         }
         else if (val.includes('AD030702')) {
           const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q/edit?gid=39768158#gid=39768158';
           showToast(`ℹ️ AD030702: PROSTOWNICE:\n✅ Nazwa: Prostownica + MARKA + Seria + Model + Maksymalna temperatura\n\n⚠️ UWAGA: Proszę o zwracanie uwagi o jednolitość danych - jeśli w funkcjach zaznaczona jest jonizacja, to w atrybucie "Jonizacja" Musi być zaznaczone: tak\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
+        }
+        else if (val.includes('AD050107')) {
+          const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q/edit?gid=1241151734#gid=1241151734';
+          showToast(`ℹ️ AD050107: Elektrostymulatory\n✅ Nazwa: Elektrostymulator + Marka + Model\n\n⚠️ Uwaga!! Produkt jest oznaczany jako medyczny tylko i wyłącznie w momencie, kiedy mamy taką informację ze strony producenta.\nW tym wypadku potrzebujemy następujących danych:\n1. Plik PDF z certyfikatem medycznym - dodajemy jako dokument - rodzaj: certyfikat (nie musi być po polsku)\n2. Numer certyfikatu\n3. Ważność certyfikatu\n4. Podmiot odpowiedzialny (pełna nazwa firmy odpowiedzialnej)\n\nJeśli produkt jest uznawany za medyczny, ale nie ma certyfikatu - zgłaszamy brak danych. Jeśli przez dłuższy czas tego certyfikatu nie uzyskamy - zmieniamy atrybut: "Produkt medyczny" Na NIE i oddajemy do akceptacji.\nW przypadku zaznaczenia Produkt medyczny: Tak - CERTYFIKAT ORAZ POZOSTAŁE ATRYBUTY MUSZĄ BYĆ WYPEŁNIONE.\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'warning');
+        }
+        else if (val.includes('AD031801')) {
+          const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q/edit?gid=649219611#gid=649219611';
+          showToast(`ℹ️ AD031801: Maski LED\n✅ Nazwa: Maska LED + części ciała + Marka + Model + Kolor np. Maska LED do twarzy OXY Theraface Zielony\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
         }
       });
     }
