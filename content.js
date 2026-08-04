@@ -206,22 +206,92 @@ if (window.hasTextTransformerLoaded) {
           const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q/edit?gid=649219611#gid=649219611';
           showToast(`ℹ️ AD031801: Maski LED\n✅ Nazwa: Maska LED + części ciała + Marka + Model + Kolor np. Maska LED do twarzy OXY Theraface Zielony\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
         }
+        else if (val.includes('FM010807')) {
+          const url = 'https://docs.google.com/spreadsheets/d/1gvZwJ7vz2PjFsgPGaNfGfvsWleVkWO9C/edit?gid=1610727100#gid=1610727100';
+          showToast(`ℹ️ FM010807: Pozostałe suplementy diety\nSkładniki wyłącznie z etykiety, którą dostaniemy, brak etykiety czekamy - wysyłamy produkt na braki. Wielkość porcji (Podstawowe informacje (FM010807), SUPLEMENTY I ODŻYWIANIE) Podajemy na cały dzień //Atrybut\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'warning');
+        }
+        else if (val.includes('AD040512')) {
+          showToast(`ℹ️ AD040512: Deski do krojenia\nNazwa: Deska do krojenia LAMART Model (30 x 22 cm) Drewniany + Nóż (pierwsza jest podawana długość i tak ma też być w atrybucie)`, 'success');
+        }
+        else if (val.includes('AZ120603')) {
+          showToast(`ℹ️ AZ120603: Akcesoria do zlewozmywaków baterii kuchennych\nNazwa: Deska do zlewozmywaków + MARKA + Model (wymiary) - najpierw długość, podajemy Typ: Deska do krojenia`, 'success');
+        }
+        else if (val.includes('FM010803')) {
+          const rcText = '<br><strong>UWAGA!</strong> Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.';
+          const copyFn = `navigator.clipboard.writeText('${rcText}')`;
+          const msg = `<div style="font-size:0.85em; line-height:1.3;">
+            ℹ️ <b>FM010803: Odżywki białkowe</b><br>
+            Dopisujemy do Opisu RC (multimedialnego):<br>
+            <div style="background:rgba(0,0,0,0.05); padding:5px; margin:5px 0; border-radius:3px; border:1px solid rgba(0,0,0,0.1);">
+              &lt;br&gt;&lt;strong&gt;UWAGA!&lt;/strong&gt; Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.
+            </div>
+            <button onclick="${copyFn}" style="margin-bottom:8px; padding:4px 8px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:1em; pointer-events:auto;">📋 Skopiuj kod HTML</button><br>
+            ⚠️ <b>Pamiętaj:</b> Takich rzeczy już <b>nie</b> dopisujemy: <i>"Wyprodukowano w zakładzie przetwarzającym mleko, jaja, ....."</i>
+          </div>`;
+          showToast(msg, 'success');
+        }
+        else if (val.includes('FM070111')) {
+          const url = 'https://discord.com/channels/1349337217356664914/1359823445080408157/1409856241567797270';
+          const msg = '<div style="font-size:0.9em; line-height:1.4;">ℹ️ <b>FM070111: Żele do prania</b><br>Na końcu nazwy wpisujemy jak w proszkach do prania:<br>✅ <i>Rodzaj produktu (Proszek do prania) + MARKA + model (np. ProCare/Spring Freshness) + pojemność (w wersji np. 4500 ml) + do białych/kolorowych tkanin + hipoalergiczny/z keratyna/dla niemowląt</i><br><br><a href="' + url + '" target="_blank" style="color:#2196F3;text-decoration:underline;pointer-events:auto;">Źródło (Discord)</a></div>';
+          showToast(msg, 'success');
+        }
       });
     }
   });
 
+  let currentToastTimeout = null;
+
   function showToast(message, type = 'info') {
     if (currentToast) currentToast.remove();
+    if (currentToastTimeout) clearTimeout(currentToastTimeout);
+
     const toast = document.createElement('div');
     toast.className = `text-transformer-toast ${type}`;
     let icon = type === 'warning' ? '⚠️' : (type === 'success' ? '✅' : 'ℹ️');
-    toast.innerHTML = `<div style="font-weight: bold; margin-bottom: 5px;">${icon} Text Transformer</div>${message}`;
+
+    // Przyciski do przypinania
+    const layoutControls = `
+      <div class="toast-layout-controls" style="position: absolute; top: 8px; right: 8px; display: grid; grid-template-columns: repeat(3, 10px); gap: 2px;">
+        <div class="pos-btn" data-pos="tl" title="Góra Lewa"></div>
+        <div class="pos-btn" data-pos="tc" title="Góra Środek"></div>
+        <div class="pos-btn" data-pos="tr" title="Góra Prawa"></div>
+        <div class="pos-btn" data-pos="cl" title="Środek Lewa"></div>
+        <div class="pos-btn" style="visibility:hidden"></div>
+        <div class="pos-btn" data-pos="cr" title="Środek Prawa"></div>
+        <div class="pos-btn" data-pos="bl" title="Dół Lewa"></div>
+        <div class="pos-btn" data-pos="bc" title="Dół Środek"></div>
+        <div class="pos-btn" data-pos="br" title="Dół Prawa"></div>
+      </div>
+      <div class="toast-close-btn" style="position: absolute; top: -10px; right: -10px; background: red; color: white; border-radius: 50%; width: 22px; height: 22px; text-align: center; line-height: 20px; cursor: pointer; display: none; font-size: 14px; z-index: 10; font-weight: bold; border: 2px solid white;">✖</div>
+    `;
+
+    toast.innerHTML = layoutControls + `<div style="font-weight: bold; margin-bottom: 5px; padding-right: 40px;">${icon} Text Transformer</div><div class="toast-content">${message}</div>`;
     document.body.appendChild(toast);
     currentToast = toast;
+
+    // Logika przycisków pozycji
+    const btns = toast.querySelectorAll('.pos-btn');
+    btns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (currentToastTimeout) clearTimeout(currentToastTimeout);
+        
+        toast.className = `text-transformer-toast ${type} show pinned pos-${btn.dataset.pos}`;
+        toast.querySelector('.toast-close-btn').style.display = 'block';
+        toast.querySelector('.toast-layout-controls').style.opacity = '0.5';
+      });
+    });
+
+    toast.querySelector('.toast-close-btn').addEventListener('click', () => {
+      toast.remove();
+      currentToast = null;
+    });
+
     setTimeout(() => toast.classList.add('show'), 10);
-    const duration = type === 'warning' ? 15000 : 5000; // Ostrzeżenie widoczne 15 sekund
-    setTimeout(() => {
-      if (currentToast === toast) {
+    const duration = type === 'warning' ? 15000 : 5000;
+    
+    currentToastTimeout = setTimeout(() => {
+      if (currentToast === toast && !toast.classList.contains('pinned')) {
         toast.classList.remove('show');
         setTimeout(() => { if (toast.parentNode) toast.remove(); }, 300);
       }

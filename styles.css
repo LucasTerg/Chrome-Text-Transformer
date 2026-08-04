@@ -39,3 +39,38 @@
   background-color: #1a1a1a;
   min-width: 250px;
 }
+
+/* Przyciski do pozycjonowania (Grid) */
+.toast-layout-controls .pos-btn {
+  background: rgba(255, 255, 255, 0.3);
+  height: 10px;
+  cursor: pointer;
+  border-radius: 1px;
+}
+.toast-layout-controls .pos-btn:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* Przypięty i rozciągalny */
+.text-transformer-toast.pinned {
+  resize: both;
+  overflow: auto;
+  transition: none !important; /* Wyłącz animację podczas zmiany rozmiaru */
+  transform: none !important;
+  min-width: 200px;
+  min-height: 80px;
+}
+.text-transformer-toast.pinned .toast-content {
+  overflow: auto;
+  height: calc(100% - 25px);
+}
+
+/* Pozycje */
+.text-transformer-toast.pos-tl { top: 20px; bottom: auto; left: 20px; right: auto; }
+.text-transformer-toast.pos-tc { top: 20px; bottom: auto; left: 50%; right: auto; transform: translateX(-50%) !important; }
+.text-transformer-toast.pos-tr { top: 20px; bottom: auto; left: auto; right: 20px; }
+.text-transformer-toast.pos-cl { top: 50%; bottom: auto; left: 20px; right: auto; transform: translateY(-50%) !important; }
+.text-transformer-toast.pos-cr { top: 50%; bottom: auto; left: auto; right: 20px; transform: translateY(-50%) !important; }
+.text-transformer-toast.pos-bl { top: auto; bottom: 20px; left: 20px; right: auto; }
+.text-transformer-toast.pos-bc { top: auto; bottom: 20px; left: 50%; right: auto; transform: translateX(-50%) !important; }
+.text-transformer-toast.pos-br { top: auto; bottom: 20px; left: auto; right: 20px; }
