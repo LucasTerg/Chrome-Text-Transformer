@@ -6,6 +6,16 @@ if (window.hasTextTransformerLoaded) {
 
   let currentToast = null;
   let savedToastPos = 'tc'; // domyślnie góra-środek
+  let pauseUntil = 0;
+  let savedToastWidth = 218;
+  let savedToastHeight = 740;
+
+  chrome.storage.sync.get(['toastPos', 'pauseUntil', 'toastWidth', 'toastHeight'], (items) => {
+    if (items.toastPos) savedToastPos = items.toastPos;
+    if (items.pauseUntil) pauseUntil = items.pauseUntil;
+    if (items.toastWidth) savedToastWidth = items.toastWidth;
+    if (items.toastHeight) savedToastHeight = items.toastHeight;
+  });
 
   chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     const activeElement = document.activeElement;
@@ -105,9 +115,8 @@ if (window.hasTextTransformerLoaded) {
     if ((el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') && el.id && el.id.endsWith('-inputEl')) {
       const val = el.value || '';
       
-      chrome.storage.sync.get(['showTooltips', 'lastResetDate', 'pauseUntil', 'toastPos'], (items) => {
-        if (items.pauseUntil && Date.now() < items.pauseUntil) return;
-        savedToastPos = items.toastPos || 'tc';
+      chrome.storage.sync.get(['showTooltips', 'lastResetDate'], (items) => {
+        if (pauseUntil && Date.now() < pauseUntil) return;
 
         const now = new Date();
         const todayStr = now.toDateString();
@@ -252,27 +261,48 @@ if (window.hasTextTransformerLoaded) {
 
     // Przyciski do przypinania i zamykania
     const layoutControls = `
-      <div class="toast-layout-controls" style="position: absolute; top: 8px; right: 8px; display: grid; grid-template-columns: repeat(3, 10px); gap: 2px; opacity: 0.5;">
-        <div class="pos-btn" data-pos="tl" title="Góra Lewa"></div>
-        <div class="pos-btn" data-pos="tc" title="Góra Środek"></div>
-        <div class="pos-btn" data-pos="tr" title="Góra Prawa"></div>
-        <div class="pos-btn" data-pos="cl" title="Środek Lewa"></div>
-        <div class="pos-btn" style="visibility:hidden"></div>
-        <div class="pos-btn" data-pos="cr" title="Środek Prawa"></div>
-        <div class="pos-btn" data-pos="bl" title="Dół Lewa"></div>
-        <div class="pos-btn" data-pos="bc" title="Dół Środek"></div>
-        <div class="pos-btn" data-pos="br" title="Dół Prawa"></div>
-      </div>
-      
-      <div style="position: absolute; top: 8px; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; z-index: 10;">
-        <div class="toast-snooze-btn" title="Wyłącz powiadomienia na 15 minut" style="background: #666; color: #eee; border-radius: 4px; padding: 2px 8px; cursor: pointer; font-size: 11px; border: 1px solid #888; font-weight: normal; box-shadow: 0 2px 4px rgba(0,0,0,0.3); white-space: nowrap;">⏳ 15m</div>
-        <div class="toast-close-btn" title="Zamknij powiadomienie" style="background: #666; color: #eee; border-radius: 4px; padding: 2px 8px; cursor: pointer; font-size: 11px; border: 1px solid #888; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.3); white-space: nowrap;">✖</div>
+      <div style="position: absolute; top: 8px; right: 8px; display: flex; flex-direction: column; gap: 8px; z-index: 10; align-items: center;">
+        <div class="toast-close-btn" title="Zamknij powiadomienie" style="background: #666; color: #eee; border-radius: 4px; padding: 2px 0; cursor: pointer; font-size: 11px; border: 1px solid #888; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.3); text-align: center; width: 34px;">✖</div>
+        <div class="toast-snooze-btn" title="Wyłącz powiadomienia na 15 minut" style="background: #666; color: #eee; border-radius: 4px; padding: 2px 0; cursor: pointer; font-size: 11px; border: 1px solid #888; font-weight: normal; box-shadow: 0 2px 4px rgba(0,0,0,0.3); text-align: center; width: 34px;">⏳</div>
+        <div class="toast-layout-controls" style="display: grid; grid-template-columns: repeat(3, 10px); gap: 2px; opacity: 0.5;">
+          <div class="pos-btn" data-pos="tl" title="Góra Lewa"></div>
+          <div class="pos-btn" data-pos="tc" title="Góra Środek"></div>
+          <div class="pos-btn" data-pos="tr" title="Góra Prawa"></div>
+          <div class="pos-btn" data-pos="cl" title="Środek Lewa"></div>
+          <div class="pos-btn" style="visibility:hidden"></div>
+          <div class="pos-btn" data-pos="cr" title="Środek Prawa"></div>
+          <div class="pos-btn" data-pos="bl" title="Dół Lewa"></div>
+          <div class="pos-btn" data-pos="bc" title="Dół Środek"></div>
+          <div class="pos-btn" data-pos="br" title="Dół Prawa"></div>
+        </div>
       </div>
     `;
 
-    toast.innerHTML = layoutControls + `<div class="toast-content" style="padding-top: 28px;">${message}</div>`;
+    toast.innerHTML = layoutControls + `<div class="toast-content" style="padding-right: 42px;">${message}</div>`;
+    
+    // Ustawienie domyślnych/zapisanych rozmiarów
+    toast.style.width = `${savedToastWidth}px`;
+    toast.style.height = `${savedToastHeight}px`;
+
     document.body.appendChild(toast);
     currentToast = toast;
+
+    // Obserwowanie zmian rozmiaru okienka (resize) i zapisywanie do pamięci
+    let resizeTimeout;
+    const resizeObserver = new ResizeObserver(() => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        if (!currentToast) return;
+        const newW = toast.offsetWidth;
+        const newH = toast.offsetHeight;
+        if (newW > 0 && newH > 0 && (newW !== savedToastWidth || newH !== savedToastHeight)) {
+          savedToastWidth = newW;
+          savedToastHeight = newH;
+          chrome.storage.sync.set({ toastWidth: newW, toastHeight: newH });
+        }
+      }, 500);
+    });
+    resizeObserver.observe(toast);
 
     // Logika przycisków pozycji
     const btns = toast.querySelectorAll('.pos-btn');
@@ -291,8 +321,8 @@ if (window.hasTextTransformerLoaded) {
     });
     
     toast.querySelector('.toast-snooze-btn').addEventListener('click', () => {
-      const pauseTime = Date.now() + 15 * 60 * 1000;
-      chrome.storage.sync.set({ pauseUntil: pauseTime }, () => {
+      pauseUntil = Date.now() + 15 * 60 * 1000;
+      chrome.storage.sync.set({ pauseUntil: pauseUntil }, () => {
         toast.remove();
         currentToast = null;
       });
