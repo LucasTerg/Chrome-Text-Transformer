@@ -5,6 +5,7 @@ if (window.hasTextTransformerLoaded) {
   console.log('%c[Text-Transformer] SKRYPT ZAŁADOWANY!', 'background: #222; color: #bada55; font-size: 16px;');
 
   let currentToast = null;
+  let savedToastPos = 'tc'; // domyślnie góra-środek
 
   chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     const activeElement = document.activeElement;
@@ -104,7 +105,10 @@ if (window.hasTextTransformerLoaded) {
     if ((el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') && el.id && el.id.endsWith('-inputEl')) {
       const val = el.value || '';
       
-      chrome.storage.sync.get(['showTooltips', 'lastResetDate'], (items) => {
+      chrome.storage.sync.get(['showTooltips', 'lastResetDate', 'pauseUntil', 'toastPos'], (items) => {
+        if (items.pauseUntil && Date.now() < items.pauseUntil) return;
+        savedToastPos = items.toastPos || 'tc';
+
         const now = new Date();
         const todayStr = now.toDateString();
         let showTooltips = items.showTooltips !== false; // domyślnie true
@@ -239,19 +243,16 @@ if (window.hasTextTransformerLoaded) {
     }
   });
 
-  let currentToastTimeout = null;
-
   function showToast(message, type = 'info') {
     if (currentToast) currentToast.remove();
-    if (currentToastTimeout) clearTimeout(currentToastTimeout);
 
     const toast = document.createElement('div');
-    toast.className = `text-transformer-toast ${type}`;
-    let icon = type === 'warning' ? '⚠️' : (type === 'success' ? '✅' : 'ℹ️');
+    // Od razu przypinamy z zapisaną pozycją
+    toast.className = `text-transformer-toast ${type} show pinned pos-${savedToastPos}`;
 
-    // Przyciski do przypinania
+    // Przyciski do przypinania i zamykania
     const layoutControls = `
-      <div class="toast-layout-controls" style="position: absolute; top: 8px; right: 8px; display: grid; grid-template-columns: repeat(3, 10px); gap: 2px;">
+      <div class="toast-layout-controls" style="position: absolute; top: 8px; right: 8px; display: grid; grid-template-columns: repeat(3, 10px); gap: 2px; opacity: 0.5;">
         <div class="pos-btn" data-pos="tl" title="Góra Lewa"></div>
         <div class="pos-btn" data-pos="tc" title="Góra Środek"></div>
         <div class="pos-btn" data-pos="tr" title="Góra Prawa"></div>
@@ -262,10 +263,14 @@ if (window.hasTextTransformerLoaded) {
         <div class="pos-btn" data-pos="bc" title="Dół Środek"></div>
         <div class="pos-btn" data-pos="br" title="Dół Prawa"></div>
       </div>
-      <div class="toast-close-btn" style="position: absolute; top: -10px; right: -10px; background: red; color: white; border-radius: 50%; width: 22px; height: 22px; text-align: center; line-height: 20px; cursor: pointer; display: none; font-size: 14px; z-index: 10; font-weight: bold; border: 2px solid white;">✖</div>
+      
+      <div style="position: absolute; top: 8px; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; z-index: 10;">
+        <div class="toast-snooze-btn" title="Wyłącz powiadomienia na 15 minut" style="background: #666; color: #eee; border-radius: 4px; padding: 2px 8px; cursor: pointer; font-size: 11px; border: 1px solid #888; font-weight: normal; box-shadow: 0 2px 4px rgba(0,0,0,0.3); white-space: nowrap;">⏳ 15m</div>
+        <div class="toast-close-btn" title="Zamknij powiadomienie" style="background: #666; color: #eee; border-radius: 4px; padding: 2px 8px; cursor: pointer; font-size: 11px; border: 1px solid #888; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.3); white-space: nowrap;">✖</div>
+      </div>
     `;
 
-    toast.innerHTML = layoutControls + `<div style="font-weight: bold; margin-bottom: 5px; padding-right: 40px;">${icon} Text Transformer</div><div class="toast-content">${message}</div>`;
+    toast.innerHTML = layoutControls + `<div class="toast-content" style="padding-top: 28px;">${message}</div>`;
     document.body.appendChild(toast);
     currentToast = toast;
 
@@ -274,11 +279,9 @@ if (window.hasTextTransformerLoaded) {
     btns.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
-        if (currentToastTimeout) clearTimeout(currentToastTimeout);
-        
-        toast.className = `text-transformer-toast ${type} show pinned pos-${btn.dataset.pos}`;
-        toast.querySelector('.toast-close-btn').style.display = 'block';
-        toast.querySelector('.toast-layout-controls').style.opacity = '0.5';
+        savedToastPos = btn.dataset.pos;
+        chrome.storage.sync.set({ toastPos: savedToastPos });
+        toast.className = `text-transformer-toast ${type} show pinned pos-${savedToastPos}`;
       });
     });
 
@@ -286,15 +289,13 @@ if (window.hasTextTransformerLoaded) {
       toast.remove();
       currentToast = null;
     });
-
-    setTimeout(() => toast.classList.add('show'), 10);
-    const duration = type === 'warning' ? 15000 : 5000;
     
-    currentToastTimeout = setTimeout(() => {
-      if (currentToast === toast && !toast.classList.contains('pinned')) {
-        toast.classList.remove('show');
-        setTimeout(() => { if (toast.parentNode) toast.remove(); }, 300);
-      }
-    }, duration);
+    toast.querySelector('.toast-snooze-btn').addEventListener('click', () => {
+      const pauseTime = Date.now() + 15 * 60 * 1000;
+      chrome.storage.sync.set({ pauseUntil: pauseTime }, () => {
+        toast.remove();
+        currentToast = null;
+      });
+    });
   }
 }
