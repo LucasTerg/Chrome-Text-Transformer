@@ -130,7 +130,17 @@ if (window.hasTextTransformerLoaded) {
 
         if (!showTooltips) return;
 
-        if (val.includes('FM070103')) {
+        if (val.includes('DO060202')) {
+          showToast(`ℹ️ DO060202: Karmy dla psów\n\nOpis: Dodajemy skład tak jak na stronie producenta, zawsze dodajemy etykietę poz. 20.\n\nAtrybuty: Dzielimy skład na Skład podstawowy, analityczny, witaminy.\n\n📏 Rozmiar chrupek [cm]:\n- dla dorosłych (Adult): 1 cm\n- dla juniorów: 0,8 cm`, 'info');
+        }
+        else if (val.includes('DO060201')) {
+          showToast(`ℹ️ DO060201: Karmy dla kotów\n\n📏 Rozmiar chrupek [cm]:\n- dla dorosłych: 0,8 cm\n- dla juniorów: 0,5 cm`, 'info');
+        }
+        else if (val.includes('AD013001') || val.includes('AD013101')) {
+          const url = 'https://discord.com/channels/1351874258908741694/1439968976271573095';
+          showToast(`ℹ️ Klimatyzatory multisplit\n\nŹródło: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'info');
+        }
+        else if (val.includes('FM070103')) {
           showToast('NIE ZAPOMNIJ!\nEtykieta i karta charakterystyki w języku polskim.\nDodajemy atrybuty Informacje i Termin ważności pozwolenia: Nie dotyczy.', 'warning');
         } 
         else if (val.includes('AD030800')) {
@@ -195,16 +205,21 @@ if (window.hasTextTransformerLoaded) {
           showToast(msg, 'success');
         }
         else if (val.includes('AD010900')) {
-          const url = 'https://discord.com/channels/1349337217356664914/1359823445080408157/1526512917317685378';
+          const url1 = 'https://discord.com/channels/1349337217356664914/1359823445080408157/1526512917317685378';
+          const url2 = 'https://discord.com/channels/1349337217356664914/1359823445080408157/1534868419063713904';
           const msg = '<div style="font-size:0.85em;">ℹ️ <b>AD010900: ODKURZACZE AUTOMATYCZNE</b><br>' +
                       '<table style="margin-top:4px;border-collapse:collapse;">' +
-                      '<tr><td style="padding-right:8px;vertical-align:top;"><b>Typ elementu czyszczącego:</b></td>' +
-                      '<td>wybieramy <i>nie dotyczy</i>, gdy nie jest robotem myjącym (mopującym)</td></tr>' +
-                      '<tr><td style="padding-right:8px;vertical-align:top;"><b>Samoczyszczenie stacji:</b></td>' +
-                      '<td>Najczęściej obejmuje: automatyczne płukanie mopów po sprzątaniu, usuwanie zabrudzeń z tacy/podstawy, przepłukiwanie kanałów wodnych (w niektórych), przygotowanie stacji do kolejnego cyklu.</td></tr>' +
+                      '<tr><td style="padding-right:8px;vertical-align:top;border-bottom:1px solid #555;padding-bottom:4px;"><b>Typ elementu czyszczącego:</b></td>' +
+                      '<td style="border-bottom:1px solid #555;padding-bottom:4px;">Wybieramy <i>nie dotyczy</i>, gdy nie jest robotem myjącym. <b>UWAGA:</b> Ujmujemy wszystkie elementy – jeżeli produkt posiada mopa i wałek czy szczotki, też dodajemy.</td></tr>' +
+                      '<tr><td style="padding-right:8px;vertical-align:top;border-bottom:1px solid #555;padding-top:4px;padding-bottom:4px;"><b>Typ mopowania:</b></td>' +
+                      '<td style="border-bottom:1px solid #555;padding-top:4px;padding-bottom:4px;">Nie dajemy "odkurzająco mopujący" czy "odkurzający", a:<br>- Pasywne ➔ Wilgotna ściereczka - nakładka statyczna<br>- Wibracyjne ➔ Wibrująca nakładka statyczna<br>- Obrotowe ➔ Obracające się pady<br>- Wałkowe ➔ Samoczyszczący wałek</td></tr>' +
+                      '<tr><td style="padding-right:8px;vertical-align:top;padding-top:4px;"><b>Samoczyszczenie stacji:</b></td>' +
+                      '<td style="padding-top:4px;">Najczęściej obejmuje: automatyczne płukanie mopów po sprzątaniu, usuwanie zabrudzeń z tacy/podstawy, przepłukiwanie kanałów wodnych, przygotowanie stacji do kolejnego cyklu.</td></tr>' +
                       '</table>' +
-                      '<a href="' + url + '" target="_blank" style="color:#2196F3;text-decoration:underline;pointer-events:auto;display:block;margin-top:4px;">Link do informacji</a>' +
-                      '</div>';
+                      '<div style="margin-top:8px;">' +
+                      '<a href="' + url1 + '" target="_blank" style="color:#2196F3;text-decoration:underline;pointer-events:auto;margin-right:10px;">Link (Stacja)</a>' +
+                      '<a href="' + url2 + '" target="_blank" style="color:#2196F3;text-decoration:underline;pointer-events:auto;">Link (Mopowanie)</a>' +
+                      '</div></div>';
           showToast(msg, 'success');
         }
         else if (val.includes('AD030702')) {
