@@ -140,6 +140,10 @@ if (window.hasTextTransformerLoaded) {
           const url = 'https://discord.com/channels/1351874258908741694/1439968976271573095';
           showToast(`ℹ️ Klimatyzatory multisplit\n\nŹródło: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'info');
         }
+        else if (val.includes('FM070106')) {
+          const url = 'https://discord.com/channels/1349337217356664914/1359823445080408157/1410157675756523572';
+          showToast(`ℹ️ FM070106: Kapsułki do prania\n\n✅ Schemat nazwy:\nRodzaj produktu (Kapsułki do prania) + MARKA + model (np. ProCare/Spring Freshness) + sztuki (np. 45 szt.) + do białych/kolorowych tkanin + hipoalergiczny/z keratyna/dla niemowląt\n\nŹródło: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
+        }
         else if (val.includes('FM070103')) {
           showToast('NIE ZAPOMNIJ!\nEtykieta i karta charakterystyki w języku polskim.\nDodajemy atrybuty Informacje i Termin ważności pozwolenia: Nie dotyczy.', 'warning');
         } 
