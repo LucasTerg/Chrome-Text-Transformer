@@ -264,7 +264,24 @@ if (window.hasTextTransformerLoaded) {
         }
         else if (val.includes('FM070111')) {
           const url = 'https://discord.com/channels/1349337217356664914/1359823445080408157/1409856241567797270';
-          const msg = '<div style="font-size:0.9em; line-height:1.4;">ℹ️ <b>FM070111: Żele do prania</b><br>Na końcu nazwy wpisujemy jak w proszkach do prania:<br>✅ <i>Rodzaj produktu (Proszek do prania) + MARKA + model (np. ProCare/Spring Freshness) + pojemność (w wersji np. 4500 ml) + do białych/kolorowych tkanin + hipoalergiczny/z keratyna/dla niemowląt</i><br><br><a href="' + url + '" target="_blank" style="color:#2196F3;text-decoration:underline;pointer-events:auto;">Źródło (Discord)</a></div>';
+          const copy1 = `navigator.clipboard.writeText('do białych tkanin')`;
+          const copy2 = `navigator.clipboard.writeText('do kolorowych tkanin')`;
+          const copy3 = `navigator.clipboard.writeText('Uniwersalny')`;
+          const copy4 = `navigator.clipboard.writeText('hipoalergiczny')`;
+          const copy5 = `navigator.clipboard.writeText('z keratyną')`;
+          const copy6 = `navigator.clipboard.writeText('dla niemowląt')`;
+          const msg = `<div style="font-size:0.9em; line-height:1.4;">ℹ️ <b>FM070111: Żele do prania</b><br>
+            Na końcu nazwy wpisujemy jak w proszkach do prania:<br>
+            ✅ <i>Rodzaj produktu (Proszek do prania) + MARKA + model (np. ProCare/Spring Freshness) + pojemność (w wersji np. 4500 ml) + do białych/kolorowych tkanin + hipoalergiczny/z keratyna/dla niemowląt</i><br><br>
+            <div style="display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 8px;">
+              <button onclick="${copy1}" style="padding:4px 8px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:1em; pointer-events:auto;">📋 do białych tkanin</button>
+              <button onclick="${copy2}" style="padding:4px 8px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:1em; pointer-events:auto;">📋 do kolorowych tkanin</button>
+              <button onclick="${copy3}" style="padding:4px 8px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:1em; pointer-events:auto;">📋 Uniwersalny</button>
+              <button onclick="${copy4}" style="padding:4px 8px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:1em; pointer-events:auto;">📋 hipoalergiczny</button>
+              <button onclick="${copy5}" style="padding:4px 8px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:1em; pointer-events:auto;">📋 z keratyną</button>
+              <button onclick="${copy6}" style="padding:4px 8px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:1em; pointer-events:auto;">📋 dla niemowląt</button>
+            </div>
+            <a href="${url}" target="_blank" style="color:#2196F3;text-decoration:underline;pointer-events:auto;">Źródło (Discord)</a></div>`;
           showToast(msg, 'success');
         }
       });
