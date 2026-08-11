@@ -172,7 +172,7 @@ if (window.hasTextTransformerLoaded) {
         }
         else if (val.includes('AD031001')) {
           const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q/edit?gid=1046973816#gid=1046973816';
-          showToast(`ℹ️ AD031001: SUSZARKO-LOKÓWKI:\n✅ Nazwa: Suszarko-lokówka + MARKA + Seria + Model + średnica końcówek + Moc\n\n⚠️ UWAGA: Proszę o wpisywanie technologii w atrybut "Zastosowane technologie" - nawet, jeśli będzie to tylko technologia jonowa. Jest to atrybut, który znajduje się na listingu.\n\n⚠️ UWAGA: Prośba o pamiętanie o wpisanie końcówek, które znajdują się w zestawie do wyposażenia.\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
+          showToast(`ℹ️ AD031001: SUSZARKO-LOKÓWKI:\n✅ Nazwa: Suszarko-lokówka + MARKA + Seria + Model + średnica końcówek + Moc\n👉 W nazwie wpisujemy wszystkie rozmiary końcówek np.: Suszarko-lokówka CECOTEC AirGlisse 8in1 Flex Czarny 32, 38 mm 1400W\n\n⚠️ UWAGA: Proszę o wpisywanie technologii w atrybut "Zastosowane technologie" - nawet, jeśli będzie to tylko technologia jonowa. Jest to atrybut, który znajduje się na listingu.\n\n⚠️ UWAGA: Prośba o pamiętanie o wpisanie końcówek, które znajdują się w zestawie do wyposażenia.\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
         }
         else if (val.includes('DO059905')) {
           const url = 'https://discord.com/channels/1349337217356664914/1359823445080408157/1521766753317683330';
