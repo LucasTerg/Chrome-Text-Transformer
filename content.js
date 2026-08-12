@@ -134,7 +134,7 @@ if (window.hasTextTransformerLoaded) {
           showToast(`ℹ️ DO060202: Karmy dla psów\n\nOpis: Dodajemy skład tak jak na stronie producenta, zawsze dodajemy etykietę poz. 20.\n\nAtrybuty: Dzielimy skład na Skład podstawowy, analityczny, witaminy.\n\n📏 Rozmiar chrupek [cm]:\n- dla dorosłych (Adult): 1 cm\n- dla juniorów: 0,8 cm`, 'info');
         }
         else if (val.includes('DO060201')) {
-          showToast(`ℹ️ DO060201: Karmy dla kotów\n\n📏 Rozmiar chrupek [cm]:\n- dla dorosłych: 0,8 cm\n- dla juniorów: 0,5 cm`, 'info');
+          showToast(`ℹ️ DO060201: Karmy dla kotów\n\n📏 Rozmiar chrupek [cm]:\n- dla dorosłych: 0,8 cm\n- dla juniorów: 0,5 cm\n\n⚖️ Atrybut waga:\n"Waga (Parametry (AD0499), POZOSTAŁE AKCESORIA AGD)" wpisujemy np. 270 g, gdy "Waga [g] (Parametry (AD0499), POZOSTAŁE AKCESORIA AGD)" = 270.`, 'info');
         }
         else if (val.includes('AD013001') || val.includes('AD013101')) {
           const url = 'https://discord.com/channels/1351874258908741694/1439968976271573095';
