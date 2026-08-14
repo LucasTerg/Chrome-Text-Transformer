@@ -140,6 +140,15 @@ if (window.hasTextTransformerLoaded) {
           const url = 'https://discord.com/channels/1351874258908741694/1439968976271573095';
           showToast(`ℹ️ Klimatyzatory multisplit\n\nŹródło: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'info');
         }
+        else if (val.includes('AD022301')) {
+          const msg = `<div style="font-size:0.9em; line-height:1.4;">
+            ℹ️ <b>AD022301: Lodówki samochodowe</b><br><br>
+            ✅ <b>Schemat nazwy:</b> Lodówka turystyczna + MARKA + model<br><br>
+            ⚠️ <b>Dla lodówek pasywnych:</b> Na końcu opisu dopisujemy informację o wkładach chłodzących (lub ich braku), np.:<br>
+            <i>Wkłady chłodzące (brak w zestawie)</i>
+          </div>`;
+          showToast(msg, 'success');
+        }
         else if (val.includes('FM070106')) {
           const url = 'https://discord.com/channels/1349337217356664914/1359823445080408157/1410157675756523572';
           showToast(`ℹ️ FM070106: Kapsułki do prania\n\n✅ Schemat nazwy:\nRodzaj produktu (Kapsułki do prania) + MARKA + model (np. ProCare/Spring Freshness) + sztuki (np. 45 szt.) + do białych/kolorowych tkanin + hipoalergiczny/z keratyna/dla niemowląt\n\nŹródło: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
@@ -262,7 +271,8 @@ if (window.hasTextTransformerLoaded) {
               &lt;br&gt;&lt;strong&gt;UWAGA!&lt;/strong&gt; Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.
             </div>
             <button onclick="${copyFn}" style="margin-bottom:8px; padding:4px 8px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:1em; pointer-events:auto;">📋 Skopiuj kod HTML</button><br>
-            ⚠️ <b>Pamiętaj:</b> Takich rzeczy już <b>nie</b> dopisujemy: <i>"Wyprodukowano w zakładzie przetwarzającym mleko, jaja, ....."</i>
+            ⚠️ <b>Pamiętaj:</b> Takich rzeczy już <b>nie</b> dopisujemy: <i>"Wyprodukowano w zakładzie przetwarzającym mleko, jaja, ....."</i><br><br>
+            ⚖️ <b>Wielkość porcji:</b> Podajemy największą porcję dzienną. Jeżeli porcja to np. 25 g x 2 dziennie, to wpisujemy <b>50 g</b>.
           </div>`;
           showToast(msg, 'success');
         }
