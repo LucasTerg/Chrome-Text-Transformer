@@ -145,7 +145,8 @@ if (window.hasTextTransformerLoaded) {
             ℹ️ <b>AD022301: Lodówki samochodowe</b><br><br>
             ✅ <b>Schemat nazwy:</b> Lodówka turystyczna + MARKA + model<br><br>
             ⚠️ <b>Dla lodówek pasywnych:</b> Na końcu opisu dopisujemy informację o wkładach chłodzących (lub ich braku), np.:<br>
-            <i>Wkłady chłodzące (brak w zestawie)</i>
+            <i>Wkłady chłodzące (brak w zestawie)</i><br><br>
+            🔍 <b>Kod EPREL (Techniczne (AD0223), LODÓWKI SAMOCHODOWE):</b> szukamy link <a href="https://eprel.ec.europa.eu/screen/product/refrigeratingappliances2019" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">https://eprel.ec.europa.eu/screen/product/refrigeratingappliances2019</a> lub <a href="https://eprel.ec.europa.eu/screen/home" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">https://eprel.ec.europa.eu/screen/home</a>
           </div>`;
           showToast(msg, 'success');
         }
