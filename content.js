@@ -264,7 +264,25 @@ if (window.hasTextTransformerLoaded) {
         }
         else if (val.includes('FM010807')) {
           const url = 'https://docs.google.com/spreadsheets/d/1gvZwJ7vz2PjFsgPGaNfGfvsWleVkWO9C/edit?gid=1610727100#gid=1610727100';
-          showToast(`ℹ️ FM010807: Pozostałe suplementy diety\nSkładniki wyłącznie z etykiety, którą dostaniemy, brak etykiety czekamy - wysyłamy produkt na braki. Wielkość porcji (Podstawowe informacje (FM010807), SUPLEMENTY I ODŻYWIANIE) Podajemy na cały dzień //Atrybut\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'warning');
+          const rcTextHtml = '<br /><br /><strong>UWAGA!</strong> Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.';
+          const rcTextPlain = 'UWAGA! Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.';
+          const copyHtmlFn = `navigator.clipboard.writeText('${rcTextHtml}')`;
+          const copyPlainFn = `navigator.clipboard.writeText('${rcTextPlain}')`;
+          const msg = `<div style="font-size:0.9em; line-height:1.4;">
+            ℹ️ <b>FM010807: Pozostałe suplementy diety</b><br>
+            Składniki wyłącznie z etykiety, którą dostaniemy, brak etykiety czekamy - wysyłamy produkt na braki. Wielkość porcji (Podstawowe informacje (FM010807), SUPLEMENTY I ODŻYWIANIE) Podajemy na cały dzień //Atrybut<br><br>
+            Dopisujemy na końcu opisu MM regułkę:<br>
+            <div style="background:rgba(0,0,0,0.05); padding:5px; margin:5px 0; border-radius:3px; border:1px solid rgba(0,0,0,0.1);">
+              &lt;br /&gt;&lt;br /&gt;&lt;strong&gt;UWAGA!&lt;/strong&gt; Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.
+            </div>
+            <div style="display: flex; gap: 5px; flex-wrap: wrap;">
+              <button onclick="${copyHtmlFn}" style="padding:4px 8px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:1em; pointer-events:auto;">📋 Z tagami HTML</button>
+              <button onclick="${copyPlainFn}" style="padding:4px 8px; cursor:pointer; background:#2196F3; color:white; border:none; border-radius:4px; font-size:1em; pointer-events:auto;">📋 Bez tagów</button>
+            </div>
+            <br>
+            Arkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>
+          </div>`;
+          showToast(msg, 'warning');
         }
         else if (val.includes('AD040512')) {
           showToast(`ℹ️ AD040512: Deski do krojenia\nNazwa: Deska do krojenia LAMART Model (30 x 22 cm) Drewniany + Nóż (pierwsza jest podawana długość i tak ma też być w atrybucie)`, 'success');
@@ -284,6 +302,24 @@ if (window.hasTextTransformerLoaded) {
             <button onclick="${copyFn}" style="margin-bottom:8px; padding:4px 8px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:1em; pointer-events:auto;">📋 Skopiuj kod HTML</button><br>
             ⚠️ <b>Pamiętaj:</b> Takich rzeczy już <b>nie</b> dopisujemy: <i>"Wyprodukowano w zakładzie przetwarzającym mleko, jaja, ....."</i><br><br>
             ⚖️ <b>Wielkość porcji:</b> Podajemy największą porcję dzienną. Jeżeli porcja to np. 25 g x 2 dziennie, to wpisujemy <b>50 g</b>.
+          </div>`;
+          showToast(msg, 'success');
+        }
+        else if (val.includes('FM010812')) {
+          const rcTextHtml = '<br /><br /><strong>UWAGA!</strong> Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.';
+          const rcTextPlain = 'UWAGA! Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.';
+          const copyHtmlFn = `navigator.clipboard.writeText('${rcTextHtml}')`;
+          const copyPlainFn = `navigator.clipboard.writeText('${rcTextPlain}')`;
+          const msg = `<div style="font-size:0.85em; line-height:1.3;">
+            ℹ️ <b>FM010812: Kolagen</b><br>
+            Na końcu opisu dopisujemy regułkę:<br>
+            <div style="background:rgba(0,0,0,0.05); padding:5px; margin:5px 0; border-radius:3px; border:1px solid rgba(0,0,0,0.1);">
+              &lt;br /&gt;&lt;br /&gt;&lt;strong&gt;UWAGA!&lt;/strong&gt; Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.
+            </div>
+            <div style="display: flex; gap: 5px; flex-wrap: wrap;">
+              <button onclick="${copyHtmlFn}" style="padding:4px 8px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:1em; pointer-events:auto;">📋 Z tagami HTML</button>
+              <button onclick="${copyPlainFn}" style="padding:4px 8px; cursor:pointer; background:#2196F3; color:white; border:none; border-radius:4px; font-size:1em; pointer-events:auto;">📋 Bez tagów</button>
+            </div>
           </div>`;
           showToast(msg, 'success');
         }
