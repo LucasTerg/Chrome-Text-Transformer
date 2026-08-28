@@ -41,6 +41,12 @@
       "match_about_blank": true
     }
   ],
+  "web_accessible_resources": [
+    {
+      "resources": ["images/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
   "commands": {
     "transform_uppercase": {
       "suggested_key": { "default": "Alt+Shift+D" },
