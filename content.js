@@ -133,6 +133,13 @@ if (window.hasTextTransformerLoaded) {
         if (val.includes('DO060202')) {
           showToast(`ℹ️ DO060202: Karmy dla psów\n\nOpis: Dodajemy skład tak jak na stronie producenta, zawsze dodajemy etykietę poz. 20.\n\nAtrybuty: Dzielimy skład na Skład podstawowy, analityczny, witaminy.\n\n📏 Rozmiar chrupek [cm]:\n- dla dorosłych (Adult): 1 cm\n- dla juniorów: 0,8 cm`, 'info');
         }
+        else if (val.includes('DO060302')) {
+          const msg = `<div style="font-size:0.9em; line-height:1.4;">
+            ℹ️ <b>DO060302: Przysmaki dla psów</b><br><br>
+            ⚠️ Tutaj <b>nie dodajemy</b> etykiety.
+          </div>`;
+          showToast(msg, 'info');
+        }
         else if (val.includes('DO060201')) {
           showToast(`ℹ️ DO060201: Karmy dla kotów\n\n📏 Rozmiar chrupek [cm]:\n- dla dorosłych: 0,8 cm\n- dla juniorów: 0,5 cm\n\n⚖️ Atrybut waga:\n"Waga (Parametry (AD0499), POZOSTAŁE AKCESORIA AGD)" wpisujemy np. 270 g, gdy "Waga [g] (Parametry (AD0499), POZOSTAŁE AKCESORIA AGD)" = 270.`, 'info');
         }
