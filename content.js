@@ -147,6 +147,20 @@ if (window.hasTextTransformerLoaded) {
           const url = 'https://discord.com/channels/1351874258908741694/1439968976271573095';
           showToast(`ℹ️ Klimatyzatory multisplit\n\nŹródło: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'info');
         }
+        else if (val.includes('AD022901')) {
+          const msg = `<div style="font-size:0.9em; line-height:1.4;">
+            ℹ️ <b>AD022901: Garnki</b><br><br>
+            ✅ <b>Dla pojedynczych (garnek, brytfanna, rondel):</b><br>
+            Garnek / Brytfanna / Rondel + MARKA + Model + Pojemność w litrach<br><br>
+            ✅ <b>Dla zestawów garnków:</b><br>
+            Zestaw garnków + MARKA + Model + Liczba elementów<br><br>
+            ⚠️ <b>Ważne:</b><br>
+            - W zestawach dajemy <b>tylko średnicę największego garnka/naczynia</b>.<br>
+            - Pamiętaj o dodawaniu słowa <b>"żeliwna"</b> w garnkach/brytfannach (jeśli dotyczy).<br>
+            - Atrybut <b>System Ingenio (Techniczne (AD0221))</b> dotyczy <b>tylko</b> produktów marki <b>TEFAL</b>.
+          </div>`;
+          showToast(msg, 'info');
+        }
         else if (val.includes('AD022301')) {
           const msg = `<div style="font-size:0.9em; line-height:1.4;">
             ℹ️ <b>AD022301: Lodówki samochodowe</b><br><br>
