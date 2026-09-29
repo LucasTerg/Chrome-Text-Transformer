@@ -136,7 +136,10 @@ if (window.hasTextTransformerLoaded) {
         else if (val.includes('DO060302')) {
           const msg = `<div style="font-size:0.9em; line-height:1.4;">
             ℹ️ <b>DO060302: Przysmaki dla psów</b><br><br>
-            ⚠️ Tutaj <b>nie dodajemy</b> etykiety.
+            ⚠️ Tutaj <b>nie dodajemy</b> etykiety.<br><br>
+            ⚖️ <b>Atrybut Waga:</b><br>
+            - Jeżeli w nazwie jest waga, wpisujemy taką samą w atrybucie.<br>
+            - Wagę podajemy <b>całościową</b> (np. 5 szt. po 45g to w nazwie i atrybucie wpisujemy wagę jako <b>5x45</b>).
           </div>`;
           showToast(msg, 'info');
         }
