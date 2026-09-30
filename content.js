@@ -252,6 +252,14 @@ if (window.hasTextTransformerLoaded) {
                       '<a href="' + url + '" target="_blank" style="color:#2196F3;text-decoration:underline;pointer-events:auto;display:block;margin-top:4px;">Link do informacji</a>';
           showToast(msg, 'success');
         }
+        else if (val.includes('AD012901')) {
+          const msg = `<div style="font-size:0.9em; line-height:1.4;">
+            ℹ️ <b>AD012901: Odkurzacze piorące</b><br><br>
+            ⚠️ <b>Atrybut Przeznaczenie</b> (Parametry (AD0108), URZĄDZENIA SPRZĄTAJĄCE):<br>
+            Jeśli nie jest podane, dodajemy: <b>Do użytku domowego</b> lub <b>Do użytku profesjonalnego</b>.
+          </div>`;
+          showToast(msg, 'info');
+        }
         else if (val.includes('AD010900')) {
           const url1 = 'https://discord.com/channels/1349337217356664914/1359823445080408157/1526512917317685378';
           const url2 = 'https://discord.com/channels/1349337217356664914/1359823445080408157/1534868419063713904';
