@@ -351,6 +351,15 @@ if (window.hasTextTransformerLoaded) {
           </div>`;
           showToast(msg, 'warning');
         }
+        else if (val.includes('AD050703')) {
+          const msg = `<div style="font-size:0.9em; line-height:1.4;">
+            ℹ️ <b>AD050703: Masażery erotyczne</b><br><br>
+            ⚠️ <b>Wodoodporny</b> (Parametry (AD050703), MASAŻERY EROTYCZNE):<br>
+            - <b>Tak</b>, jeśli jest IPX7<br>
+            - Gdy nie jest IPX7, wpisujemy w <b>Informacje dodatkowe</b> (Parametry (AD050703), MASAŻERY EROTYCZNE) np. <i>Wodoodporność IPX6</i> lub inny.
+          </div>`;
+          showToast(msg, 'info');
+        }
         else if (val.includes('AD040512')) {
           showToast(`ℹ️ AD040512: Deski do krojenia\nNazwa: Deska do krojenia LAMART Model (30 x 22 cm) Drewniany + Nóż (pierwsza jest podawana długość i tak ma też być w atrybucie)`, 'success');
         }
