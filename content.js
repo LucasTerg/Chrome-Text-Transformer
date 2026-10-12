@@ -222,6 +222,15 @@ if (window.hasTextTransformerLoaded) {
           const url = 'https://discord.com/channels/1349337217356664914/1359823445080408157/1521766753317683330';
           showToast(`ℹ️ DO059905: Poszewki na poduszki\nnie posiada wyraźnego wzoru, a powierzchnia jest jednokolorowa, należy zastosować wartość „Jednolity”; nie posiada żadnego wykończenia, należy uzupełnić wartość „Bez wykończenia”.\n\nŹródło: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
         }
+        else if (val.includes('AD023200')) {
+          const copyPrefix = `navigator.clipboard.writeText('Air Fryer Frytkownica beztłuszczowa ')`;
+          const msg = `<div style="font-size:0.9em; line-height:1.4;">
+            ℹ️ <b>AD023200: AIR FRYERY</b><br><br>
+            ✅ <b>NAZWA:</b> Air Fryer Frytkownica beztłuszczowa AMBITION {seria,model} {funkcje}<br><br>
+            <button onclick="${copyPrefix}" style="padding:4px 8px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:1em; pointer-events:auto;">📋 Kopiuj: Air Fryer Frytkownica beztłuszczowa</button>
+          </div>`;
+          showToast(msg, 'info');
+        }
         else if (val.includes('AD023604')) {
           const url = 'https://discord.com/channels/1349337217356664914/1359823445080408157/1524012577720369224';
           const msg = 'ℹ️ AD023604: Wiaderka do lodu<br>' +
