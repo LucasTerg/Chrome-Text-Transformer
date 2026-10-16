@@ -158,6 +158,7 @@ if (window.hasTextTransformerLoaded) {
             ✅ <b>Dla zestawów garnków:</b><br>
             Zestaw garnków + MARKA + Model + Liczba elementów<br><br>
             ⚠️ <b>Ważne:</b><br>
+            - W nazwie litry wpisujemy dużą literą <b>'L'</b> (np.: <i>Garnek AMBITION Curly 3.8L</i>).<br>
             - W zestawach dajemy <b>tylko średnicę największego garnka/naczynia</b>.<br>
             - Pamiętaj o dodawaniu słowa <b>"żeliwna"</b> w garnkach/brytfannach (jeśli dotyczy).<br>
             - Atrybut <b>System Ingenio (Techniczne (AD0221))</b> dotyczy <b>tylko</b> produktów marki <b>TEFAL</b>.
