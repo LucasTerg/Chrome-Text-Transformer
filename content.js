@@ -219,6 +219,21 @@ if (window.hasTextTransformerLoaded) {
           const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q/edit?gid=1046973816#gid=1046973816';
           showToast(`ℹ️ AD031001: SUSZARKO-LOKÓWKI:\n✅ Nazwa: Suszarko-lokówka + MARKA + Seria + Model + średnica końcówek + Moc\n👉 W nazwie wpisujemy wszystkie rozmiary końcówek np.: Suszarko-lokówka CECOTEC AirGlisse 8in1 Flex Czarny 32, 38 mm 1400W\n\n⚠️ UWAGA: Proszę o wpisywanie technologii w atrybut "Zastosowane technologie" - nawet, jeśli będzie to tylko technologia jonowa. Jest to atrybut, który znajduje się na listingu.\n\n⚠️ UWAGA: Prośba o pamiętanie o wpisanie końcówek, które znajdują się w zestawie do wyposażenia.\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
         }
+        else if (val.includes('AD031100')) {
+          const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q/edit?gid=436780604#gid=436780604';
+          const copyEx = `navigator.clipboard.writeText('Trymer PHILIPS OneBlade Pro QP6542/15')`;
+          const msg = `<div style="font-size:0.9em; line-height:1.4;">
+            ℹ️ <b>AD031100: TRYMERY</b><br><br>
+            ✅ <b>Schemat nazwy:</b><br>
+            Typ produktu + MARKA + Seria + Model<br><br>
+            👉 <b>Przykład:</b><br>
+            <i>Trymer PHILIPS OneBlade Pro QP6542/15</i><br><br>
+            <button onclick="${copyEx}" style="padding:4px 8px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:1em; pointer-events:auto; margin-bottom:8px;">📋 Kopiuj przykład</button><br>
+            ⚠️ <b>UWAGA!</b> Podane poniżej schematy są wzorcowe, budujemy tak jak jest poniżej podane - KAŻDY znak, spacja, mała/duża litera lub liczba ma tutaj istotne znaczenie. Proszę zachować się do poniższych wytycznych.<br><br>
+            <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link do wytycznych (Google Sheets)</a>
+          </div>`;
+          showToast(msg, 'success');
+        }
         else if (val.includes('DO059905')) {
           const url = 'https://discord.com/channels/1349337217356664914/1359823445080408157/1521766753317683330';
           showToast(`ℹ️ DO059905: Poszewki na poduszki\nnie posiada wyraźnego wzoru, a powierzchnia jest jednokolorowa, należy zastosować wartość „Jednolity”; nie posiada żadnego wykończenia, należy uzupełnić wartość „Bez wykończenia”.\n\nŹródło: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
