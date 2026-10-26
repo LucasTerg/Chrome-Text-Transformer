@@ -195,7 +195,8 @@ if (window.hasTextTransformerLoaded) {
         }
         else if (val.includes('AD030201')) {
           const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q/edit?gid=1863629294#gid=1863629294';
-          showToast(`ℹ️ AD030201: GOLARKI:\n⚠️ UWAGA: Jeśli golarka jest do głowy musimy zaznaczyć to w nazwie.\nNa końcu nazwy zawsze musi być dopisane: Na mokro i sucho\n\n✅ Przykład:\nGolarka PHILIPS Seria 600 SkinQ S6830/95 Na mokro i sucho\nGolarka do głowy .... analogicznie\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
+          const dcUrl = 'https://discord.com/channels/1349337217356664914/1359823445080408157/1520008321656946759';
+          showToast(`ℹ️ AD030201: GOLARKI:\n⚠️ UWAGA: Jeśli golarka jest do głowy musimy zaznaczyć to w nazwie.\nNa końcu nazwy zawsze musi być dopisane: Na mokro i sucho\n\n✅ Przykład:\nGolarka PHILIPS Seria 600 SkinQ S6830/95 Na mokro i sucho\nGolarka do głowy .... analogicznie\n\n⚠️ Golarki damskie:\nJeśli jest damska, dodajemy to w nazwie:\nGolarka <b>damska</b> MARKA Model + Na mokro/sucho\n\nArkusze: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a> | Wiadomość DC: <a href="${dcUrl}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'success');
         }
         else if (val.includes('AD030401')) {
           const url = 'https://docs.google.com/spreadsheets/d/157VQzd5Whh2dDE0uY1YriSMImIG7K2G9lB__NFl1W9Q/edit?gid=517182507#gid=517182507';
@@ -428,6 +429,24 @@ if (window.hasTextTransformerLoaded) {
           const copyPlainFn = `navigator.clipboard.writeText('${rcTextPlain}')`;
           const msg = `<div style="font-size:0.85em; line-height:1.3;">
             ℹ️ <b>FM010812: Kolagen</b><br>
+            Na końcu opisu dopisujemy regułkę:<br>
+            <div style="background:rgba(0,0,0,0.05); padding:5px; margin:5px 0; border-radius:3px; border:1px solid rgba(0,0,0,0.1);">
+              &lt;br /&gt;&lt;br /&gt;&lt;strong&gt;UWAGA!&lt;/strong&gt; Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.
+            </div>
+            <div style="display: flex; gap: 5px; flex-wrap: wrap;">
+              <button onclick="${copyHtmlFn}" style="padding:4px 8px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:1em; pointer-events:auto;">📋 Z tagami HTML</button>
+              <button onclick="${copyPlainFn}" style="padding:4px 8px; cursor:pointer; background:#2196F3; color:white; border:none; border-radius:4px; font-size:1em; pointer-events:auto;">📋 Bez tagów</button>
+            </div>
+          </div>`;
+          showToast(msg, 'success');
+        }
+        else if (val.includes('FM010818')) {
+          const rcTextHtml = '<br /><br /><strong>UWAGA!</strong> Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.';
+          const rcTextPlain = 'UWAGA! Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.';
+          const copyHtmlFn = `navigator.clipboard.writeText('${rcTextHtml}')`;
+          const copyPlainFn = `navigator.clipboard.writeText('${rcTextPlain}')`;
+          const msg = `<div style="font-size:0.85em; line-height:1.3;">
+            ℹ️ <b>FM010818: Zamienniki cukru</b><br>
             Na końcu opisu dopisujemy regułkę:<br>
             <div style="background:rgba(0,0,0,0.05); padding:5px; margin:5px 0; border-radius:3px; border:1px solid rgba(0,0,0,0.1);">
               &lt;br /&gt;&lt;br /&gt;&lt;strong&gt;UWAGA!&lt;/strong&gt; Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.
