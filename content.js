@@ -410,6 +410,7 @@ if (window.hasTextTransformerLoaded) {
         else if (val.includes('FM010803')) {
           const rcText = '<br><strong>UWAGA!</strong> Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.';
           const copyFn = `navigator.clipboard.writeText('${rcText}')`;
+          const copySmak = `navigator.clipboard.writeText('Naturalny')`;
           const msg = `<div style="font-size:0.85em; line-height:1.3;">
             ℹ️ <b>FM010803: Odżywki białkowe</b><br>
             Dopisujemy do Opisu RC (multimedialnego):<br>
@@ -418,7 +419,10 @@ if (window.hasTextTransformerLoaded) {
             </div>
             <button onclick="${copyFn}" style="margin-bottom:8px; padding:4px 8px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:1em; pointer-events:auto;">📋 Skopiuj kod HTML</button><br>
             ⚠️ <b>Pamiętaj:</b> Takich rzeczy już <b>nie</b> dopisujemy: <i>"Wyprodukowano w zakładzie przetwarzającym mleko, jaja, ....."</i><br><br>
-            ⚖️ <b>Wielkość porcji:</b> Podajemy największą porcję dzienną. Jeżeli porcja to np. 25 g x 2 dziennie, to wpisujemy <b>50 g</b>.
+            ⚖️ <b>Wielkość porcji:</b> Podajemy największą porcję dzienną. Jeżeli porcja to np. 25 g x 2 dziennie, to wpisujemy <b>50 g</b>.<br><br>
+            🍦 <b>Atrybut Smak</b> (Podstawowe informacje (FM010803), SUPLEMENTY I ODŻYWIANIE):<br>
+            Wpisujemy <b>Naturalny</b> (gdy jest bez smaku, bezsmakowy, brak itp.).<br>
+            <button onclick="${copySmak}" style="margin-top:4px; padding:4px 8px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:1em; pointer-events:auto;">📋 Kopiuj: Naturalny</button>
           </div>`;
           showToast(msg, 'success');
         }
