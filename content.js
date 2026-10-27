@@ -452,8 +452,11 @@ if (window.hasTextTransformerLoaded) {
           const rcTextPlain = 'UWAGA! Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.';
           const copyHtmlFn = `navigator.clipboard.writeText('${rcTextHtml}')`;
           const copyPlainFn = `navigator.clipboard.writeText('${rcTextPlain}')`;
+          const copyGymBeam = `navigator.clipboard.writeText('GYM BEAM')`;
           const msg = `<div style="font-size:0.85em; line-height:1.3;">
-            ℹ️ <b>FM010818: Zamienniki cukru</b><br>
+            ℹ️ <b>FM010818: Zamienniki cukru</b><br><br>
+            🏷️ <b>Marka GYMBEAM:</b> jest w systemie wpisana oddzielnie i takiej używamy: <b>"GYM BEAM"</b>
+            <button onclick="${copyGymBeam}" style="padding:2px 6px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:0.9em; pointer-events:auto; margin-left:6px;">📋 GYM BEAM</button><br><br>
             Na końcu opisu dopisujemy regułkę:<br>
             <div style="background:rgba(0,0,0,0.05); padding:5px; margin:5px 0; border-radius:3px; border:1px solid rgba(0,0,0,0.1);">
               &lt;br /&gt;&lt;br /&gt;&lt;strong&gt;UWAGA!&lt;/strong&gt; Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.
