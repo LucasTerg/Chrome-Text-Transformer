@@ -468,6 +468,15 @@ if (window.hasTextTransformerLoaded) {
           </div>`;
           showToast(msg, 'success');
         }
+        else if (val.includes('FM010819')) {
+          const copyGymBeam = `navigator.clipboard.writeText('GYM BEAM')`;
+          const msg = `<div style="font-size:0.85em; line-height:1.3;">
+            ℹ️ <b>FM010819: Superfood</b><br><br>
+            🏷️ <b>Marka GYMBEAM:</b> jest w systemie wpisana oddzielnie i takiej używamy: <b>"GYM BEAM"</b>
+            <button onclick="${copyGymBeam}" style="padding:2px 6px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:0.9em; pointer-events:auto; margin-left:6px;">📋 GYM BEAM</button>
+          </div>`;
+          showToast(msg, 'info');
+        }
         else if (val.includes('FM070108')) {
           const url = 'https://discord.com/channels/1349337217356664914/1359823445080408157/1409856241567797270';
           const copy1 = `navigator.clipboard.writeText('do białych tkanin')`;
