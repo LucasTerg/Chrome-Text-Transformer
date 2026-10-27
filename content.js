@@ -377,11 +377,14 @@ if (window.hasTextTransformerLoaded) {
           const copyHtmlFn = `navigator.clipboard.writeText('${rcTextHtml}')`;
           const copyPlainFn = `navigator.clipboard.writeText('${rcTextPlain}')`;
           const copyGymBeam = `navigator.clipboard.writeText('GYM BEAM')`;
+          const copySmak = `navigator.clipboard.writeText('Naturalny')`;
           const msg = `<div style="font-size:0.9em; line-height:1.4;">
             ℹ️ <b>FM010807: Pozostałe suplementy diety</b><br>
             Składniki wyłącznie z etykiety, którą dostaniemy, brak etykiety czekamy - wysyłamy produkt na braki. Wielkość porcji (Podstawowe informacje (FM010807), SUPLEMENTY I ODŻYWIANIE) Podajemy na cały dzień //Atrybut<br><br>
             🏷️ <b>Marka GYMBEAM:</b> jest w systemie wpisana oddzielnie i takiej używamy: <b>"GYM BEAM"</b>
             <button onclick="${copyGymBeam}" style="padding:2px 6px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:0.9em; pointer-events:auto; margin-left:6px;">📋 GYM BEAM</button><br><br>
+            🍦 <b>Smak:</b> Jeżeli produkt jest bez smaku, to wpisujemy <b>Naturalny</b>.
+            <button onclick="${copySmak}" style="padding:2px 6px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:0.9em; pointer-events:auto; margin-left:6px;">📋 Naturalny</button><br><br>
             Dopisujemy na końcu opisu MM regułkę:<br>
             <div style="background:rgba(0,0,0,0.05); padding:5px; margin:5px 0; border-radius:3px; border:1px solid rgba(0,0,0,0.1);">
               &lt;br /&gt;&lt;br /&gt;&lt;strong&gt;UWAGA!&lt;/strong&gt; Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.
