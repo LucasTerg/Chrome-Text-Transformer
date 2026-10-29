@@ -131,7 +131,7 @@ if (window.hasTextTransformerLoaded) {
         if (!showTooltips) return;
 
         if (val.includes('DO060202')) {
-          showToast(`ℹ️ DO060202: Karmy dla psów\n\nOpis: Dodajemy skład tak jak na stronie producenta, zawsze dodajemy etykietę poz. 20.\n\nAtrybuty: Dzielimy skład na Skład podstawowy, analityczny, witaminy.\n\n📏 Rozmiar chrupek [cm]:\n- dla dorosłych (Adult): 1 cm\n- dla juniorów: 0,8 cm`, 'info');
+          showToast(`ℹ️ DO060202: Karmy dla psów\n\nOpis: Dodajemy skład tak jak na stronie producenta, zawsze dodajemy etykietę poz. 20.\n\nAtrybuty: Dzielimy skład na Skład podstawowy, analityczny, witaminy.\n\n📏 Rozmiar chrupek [cm]:\n- dla dorosłych (Adult): 1 cm\n- dla juniorów: 0,8 cm\n\n🐕 Atrybut Wielkość zwierzęcia (Parametry (AD0499), POZOSTAŁE AKCESORIA AGD):\nWpisujemy: Rasy duża, olbrzymia, mała i nie podajemy kg (kg podajemy w atrybucie "Waga psa (Parametry (DO060201), KARMY DLA PSÓW I KOTÓW)").`, 'info');
         }
         else if (val.includes('DO060302')) {
           const msg = `<div style="font-size:0.9em; line-height:1.4;">
