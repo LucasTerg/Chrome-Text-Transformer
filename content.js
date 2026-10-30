@@ -175,6 +175,16 @@ if (window.hasTextTransformerLoaded) {
           </div>`;
           showToast(msg, 'info');
         }
+        else if (val.includes('AD020200')) {
+          const copyTak = `navigator.clipboard.writeText('Tak')`;
+          const msg = `<div style="font-size:0.9em; line-height:1.4;">
+            ℹ️ <b>AD020200: EKSPRESY AUTOMATYCZNE</b><br><br>
+            ☕ <b>Atrybut Slim:</b><br>
+            Szerokość <b>do 20 cm</b> oznacza atrybut <b>Slim: Tak</b>.<br>
+            <button onclick="${copyTak}" style="margin-top:4px; padding:2px 6px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:0.85em; pointer-events:auto;">📋 Tak</button>
+          </div>`;
+          showToast(msg, 'info');
+        }
         else if (val.includes('AD022901')) {
           const msg = `<div style="font-size:0.9em; line-height:1.4;">
             ℹ️ <b>AD022901: Garnki</b><br><br>
