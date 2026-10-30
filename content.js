@@ -150,6 +150,31 @@ if (window.hasTextTransformerLoaded) {
           const url = 'https://discord.com/channels/1351874258908741694/1439968976271573095';
           showToast(`ℹ️ Klimatyzatory multisplit\n\nŹródło: <a href="${url}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link</a>`, 'info');
         }
+        else if (val.includes('AD011900')) {
+          const eprelUrl = 'https://eprel.ec.europa.eu/screen/product/airconditioners/2857124';
+          const gistUrl = 'https://gist.github.com/lukasz-sklad/2e944ebb7ced2da200292070c3af074d';
+          const copyEtykieta = `navigator.clipboard.writeText('etykieta-energetyczna-')`;
+          const copyKarta = `navigator.clipboard.writeText('karta-towarowa-')`;
+          const copyInstrukcja = `navigator.clipboard.writeText('instrukcja-obslugi-')`;
+          const msg = `<div style="font-size:0.9em; line-height:1.4;">
+            ℹ️ <b>AD011900: KLIMATYZATORY PRZENOŚNE</b><br><br>
+            📁 <b>Wymagane 3 pliki (Dokumenty):</b><br>
+            1. <b>Etykieta energetyczna:</b> <code>etykieta-energetyczna-{id}.jpg</code> (np. <i>etykieta-energetyczna-16005496.jpg</i> / <i>{id}.jpg</i>)<br>
+            2. <b>Karta:</b> <code>karta.pdf</code> / <code>karta-towarowa-{id}.pdf</code> (lub <i>{id}.pdf</i>)<br>
+            3. <b>Instrukcja obsługi:</b> <code>instrukcja-obslugi-{Marka}-{Model}.pdf</code> (lub <i>instrukcja-obslugi.pdf</i>)<br>
+            <div style="display: flex; gap: 5px; flex-wrap: wrap; margin-top: 5px; margin-bottom: 8px;">
+              <button onclick="${copyEtykieta}" style="padding:2px 6px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:0.85em; pointer-events:auto;">📋 etykieta-energetyczna-</button>
+              <button onclick="${copyKarta}" style="padding:2px 6px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:0.85em; pointer-events:auto;">📋 karta-towarowa-</button>
+              <button onclick="${copyInstrukcja}" style="padding:2px 6px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:0.85em; pointer-events:auto;">📋 instrukcja-obslugi-</button>
+            </div>
+            🔍 <b>Karta i EPREL:</b><br>
+            - Kartę ściągamy z EPREL: <a href="${eprelUrl}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Link do EPREL</a><br>
+            - Numer na końcu linku jest <b>kodem EPREL</b> (np. <i>2857124</i>).<br>
+            - Wpisujemy go w atrybut: <b>Kod EPREL (Techniczne (AD0105), KLIMATYZACJA)</b>.<br><br>
+            🔗 <b>Więcej informacji:</b> <a href="${gistUrl}" target="_blank" style="color: #2196F3; text-decoration: underline; pointer-events: auto;">Wytyczne (Gist)</a>
+          </div>`;
+          showToast(msg, 'info');
+        }
         else if (val.includes('AD022901')) {
           const msg = `<div style="font-size:0.9em; line-height:1.4;">
             ℹ️ <b>AD022901: Garnki</b><br><br>
