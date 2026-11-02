@@ -448,6 +448,33 @@ if (window.hasTextTransformerLoaded) {
         else if (val.includes('AZ120603')) {
           showToast(`ℹ️ AZ120603: Akcesoria do zlewozmywaków baterii kuchennych\nNazwa: Deska do zlewozmywaków + MARKA + Model (wymiary) - najpierw długość, podajemy Typ: Deska do krojenia`, 'success');
         }
+        else if (val.includes('FM010806')) {
+          const rcTextHtml = '<br /><br /><strong>UWAGA!</strong> Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.';
+          const rcTextPlain = 'UWAGA! Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.';
+          const copyHtmlFn = `navigator.clipboard.writeText('${rcTextHtml}')`;
+          const copyPlainFn = `navigator.clipboard.writeText('${rcTextPlain}')`;
+          const copySmak = `navigator.clipboard.writeText('Naturalny')`;
+          const msg = `<div style="font-size:0.9em; line-height:1.4;">
+            ℹ️ <b>FM010806: Kreatyna</b><br><br>
+            🍦 <b>Smak</b> (Podstawowe informacje (FM010806), SUPLEMENTY I ODŻYWIANIE):<br>
+            Gdy produkt nie posiada smaku, wpisujemy <b>Naturalny</b>.<br>
+            <button onclick="${copySmak}" style="margin-top:4px; margin-bottom:8px; padding:2px 6px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:0.85em; pointer-events:auto;">📋 Naturalny</button><br><br>
+            ⚖️ <b>Wielkość dawki i skład w porcji:</b><br>
+            Wartości w tej podkategorii podajemy do <b>wielkości dawki, jaką największą można przyjąć w ciągu dnia</b>.<br>
+            👉 <i>Przykład:</i> Monohydrat kreatyny OLIMP Creatine 1250 Creapure (180 kapsułek):<br>
+            - <b>Wielkość porcji:</b> 3 kapsułki<br>
+            - <b>Monohydrat kreatyny</b> (Skład w porcji (FM010806), SUPLEMENTY I ODŻYWIANIE): <b>3750 mg</b><br><br>
+            ⚠️ <b>Na końcu opisu dodajemy regułkę:</b><br>
+            <div style="background:rgba(0,0,0,0.05); padding:5px; margin:5px 0; border-radius:3px; border:1px solid rgba(0,0,0,0.1);">
+              &lt;br /&gt;&lt;br /&gt;&lt;strong&gt;UWAGA!&lt;/strong&gt; Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.
+            </div>
+            <div style="display: flex; gap: 5px; flex-wrap: wrap;">
+              <button onclick="${copyHtmlFn}" style="padding:4px 8px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:1em; pointer-events:auto;">📋 Z tagami HTML</button>
+              <button onclick="${copyPlainFn}" style="padding:4px 8px; cursor:pointer; background:#2196F3; color:white; border:none; border-radius:4px; font-size:1em; pointer-events:auto;">📋 Bez tagów</button>
+            </div>
+          </div>`;
+          showToast(msg, 'info');
+        }
         else if (val.includes('FM010803')) {
           const rcText = '<br><strong>UWAGA!</strong> Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.';
           const copyFn = `navigator.clipboard.writeText('${rcText}')`;
