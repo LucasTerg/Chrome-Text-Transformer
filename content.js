@@ -475,6 +475,24 @@ if (window.hasTextTransformerLoaded) {
           </div>`;
           showToast(msg, 'info');
         }
+        else if (val.includes('FM010805')) {
+          const rcTextHtml = '<br /><br /><strong>UWAGA!</strong> Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.';
+          const rcTextPlain = 'UWAGA! Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.';
+          const copyHtmlFn = `navigator.clipboard.writeText('${rcTextHtml}')`;
+          const copyPlainFn = `navigator.clipboard.writeText('${rcTextPlain}')`;
+          const msg = `<div style="font-size:0.85em; line-height:1.3;">
+            ℹ️ <b>FM010805: Witaminy i minerały</b><br>
+            Na końcu opisu dopisujemy regułkę:<br>
+            <div style="background:rgba(0,0,0,0.05); padding:5px; margin:5px 0; border-radius:3px; border:1px solid rgba(0,0,0,0.1);">
+              &lt;br /&gt;&lt;br /&gt;&lt;strong&gt;UWAGA!&lt;/strong&gt; Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.
+            </div>
+            <div style="display: flex; gap: 5px; flex-wrap: wrap;">
+              <button onclick="${copyHtmlFn}" style="padding:4px 8px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:1em; pointer-events:auto;">📋 Z tagami HTML</button>
+              <button onclick="${copyPlainFn}" style="padding:4px 8px; cursor:pointer; background:#2196F3; color:white; border:none; border-radius:4px; font-size:1em; pointer-events:auto;">📋 Bez tagów</button>
+            </div>
+          </div>`;
+          showToast(msg, 'success');
+        }
         else if (val.includes('FM010804')) {
           const rcTextHtml = '<br /><br /><strong>UWAGA!</strong> Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.';
           const rcTextPlain = 'UWAGA! Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.';
