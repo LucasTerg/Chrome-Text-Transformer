@@ -475,6 +475,30 @@ if (window.hasTextTransformerLoaded) {
           </div>`;
           showToast(msg, 'info');
         }
+        else if (val.includes('FM010804')) {
+          const rcTextHtml = '<br /><br /><strong>UWAGA!</strong> Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.';
+          const rcTextPlain = 'UWAGA! Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.';
+          const copyHtmlFn = `navigator.clipboard.writeText('${rcTextHtml}')`;
+          const copyPlainFn = `navigator.clipboard.writeText('${rcTextPlain}')`;
+          const copy18Plus = `navigator.clipboard.writeText('18+')`;
+          const msg = `<div style="font-size:0.85em; line-height:1.3;">
+            ℹ️ <b>FM010804: Przedtreningówki</b><br>
+            Na końcu opisu dopisujemy regułkę:<br>
+            <div style="background:rgba(0,0,0,0.05); padding:5px; margin:5px 0; border-radius:3px; border:1px solid rgba(0,0,0,0.1);">
+              &lt;br /&gt;&lt;br /&gt;&lt;strong&gt;UWAGA!&lt;/strong&gt; Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.
+            </div>
+            <div style="display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 8px;">
+              <button onclick="${copyHtmlFn}" style="padding:4px 8px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:1em; pointer-events:auto;">📋 Z tagami HTML</button>
+              <button onclick="${copyPlainFn}" style="padding:4px 8px; cursor:pointer; background:#2196F3; color:white; border:none; border-radius:4px; font-size:1em; pointer-events:auto;">📋 Bez tagów</button>
+            </div>
+            🔞 <b>Atrybut 18+:</b><br>
+            Przy produktach z <b>kofeiną lub/z tauryną</b> w ilości <b>powyżej 150 mg/l lub 150 mg na porcję</b> musimy oznaczyć produkt jako <b>18+</b> (specjalny atrybut <i>18+</i>, dodawany dodatkowo z opcji „dodaj”).<br><br>
+            • <b>Formy objęte 18+:</b> płyny i shoty, tabletki, kapsułki oraz proszki (rozrabiane do postaci płynnej).<br>
+            • <b>Wyjątek:</b> Żele energetyczne (w nich <b>nie</b> ustawiamy tego ograniczenia).<br>
+            <button onclick="${copy18Plus}" style="margin-top:4px; padding:2px 6px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:0.85em; pointer-events:auto;">📋 18+</button>
+          </div>`;
+          showToast(msg, 'success');
+        }
         else if (val.includes('FM010803')) {
           const rcText = '<br><strong>UWAGA!</strong> Nie należy przekraczać zalecanej dziennej dawki. Preparat nie jest przeznaczony dla dzieci, kobiet w ciąży i karmiących piersią. Przed spożyciem zapoznaj się z etykietą z tyłu opakowania.';
           const copyFn = `navigator.clipboard.writeText('${rcText}')`;
