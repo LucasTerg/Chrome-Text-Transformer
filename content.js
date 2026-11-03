@@ -481,6 +481,8 @@ if (window.hasTextTransformerLoaded) {
           const copyHtmlFn = `navigator.clipboard.writeText('${rcTextHtml}')`;
           const copyPlainFn = `navigator.clipboard.writeText('${rcTextPlain}')`;
           const copy18Plus = `navigator.clipboard.writeText('18+')`;
+          const copyAakg = `navigator.clipboard.writeText('AAKG (alfa-ketoglutaran L-argininy)')`;
+          const copyBarwniki = `navigator.clipboard.writeText('Barwniki (zależne od partii produkcyjnej)')`;
           const msg = `<div style="font-size:0.85em; line-height:1.3;">
             ℹ️ <b>FM010804: Przedtreningówki</b><br>
             Na końcu opisu dopisujemy regułkę:<br>
@@ -495,7 +497,13 @@ if (window.hasTextTransformerLoaded) {
             Przy produktach z <b>kofeiną lub/z tauryną</b> w ilości <b>powyżej 150 mg/l lub 150 mg na porcję</b> musimy oznaczyć produkt jako <b>18+</b> (specjalny atrybut <i>18+</i>, dodawany dodatkowo z opcji „dodaj”).<br><br>
             • <b>Formy objęte 18+:</b> płyny i shoty, tabletki, kapsułki oraz proszki (rozrabiane do postaci płynnej).<br>
             • <b>Wyjątek:</b> Żele energetyczne (w nich <b>nie</b> ustawiamy tego ograniczenia).<br>
-            <button onclick="${copy18Plus}" style="margin-top:4px; padding:2px 6px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:0.85em; pointer-events:auto;">📋 18+</button>
+            <button onclick="${copy18Plus}" style="margin-top:4px; margin-bottom:8px; padding:2px 6px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:0.85em; pointer-events:auto;">📋 18+</button><br><br>
+            💪 <b>AAKG (alfa-ketoglutaran L-argininy):</b><br>
+            <button onclick="${copyAakg}" style="margin-top:4px; margin-bottom:8px; padding:2px 6px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:0.85em; pointer-events:auto;">📋 AAKG (alfa-ketoglutaran L-argininy)</button><br><br>
+            🎨 <b>Pozostałe składniki</b> (Skład w porcji (FM010804), SUPLEMENTY I ODŻYWIANIE):<br>
+            Jeżeli w składzie mamy podane barwniki do różnych produktów/partii, wpisujemy:<br>
+            <b>Barwniki (zależne od partii produkcyjnej)</b><br>
+            <button onclick="${copyBarwniki}" style="margin-top:4px; padding:2px 6px; cursor:pointer; background:#4CAF50; color:white; border:none; border-radius:4px; font-size:0.85em; pointer-events:auto;">📋 Barwniki (zależne od partii produkcyjnej)</button>
           </div>`;
           showToast(msg, 'success');
         }
